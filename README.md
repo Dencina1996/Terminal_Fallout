@@ -8,3 +8,7 @@
  ***
 #### Instalación
  * **[Manual de instalación](https://github.com/Dencina1996/Terminal_Fallout/wiki/Instalaci%C3%B3n-del-proyecto)**
+
+ ***
+#### Especificaciones
+ * **[Especificaciones por tiempo](https://github.com/Dencina1996/Terminal_Fallout/wiki/Especificaciones)**
