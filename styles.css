@@ -1,0 +1,25 @@
+body {	background: url('http://inn.spb.ru/images/200/DSC100213678.jpg') no-repeat center center fixed;
+		background-size: cover;
+		display: table;
+		top: 0;
+		left: 0;
+	}
+
+div {	background-color: red;
+		height: 40%;
+		width: 30%;
+		margin: auto;
+
+}
+
+#col1 {	height: 100%;
+		width: 50%;
+		float: left;
+		background-color: yellow;
+}
+
+#col2 {	height: 100%;
+		width: 50%;
+		float: right;
+		background-color: blue;
+}
