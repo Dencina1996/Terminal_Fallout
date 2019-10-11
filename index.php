@@ -8,14 +8,14 @@
 	<body>
 		<div>
 			<div id="col1">
-				Bringing unlocked me an striking ye perceive. Mr by wound hours oh happy. Me in resolution pianoforte continuing we. Most my no spot felt by no. He he in forfeited furniture sweetness he arranging. Me tedious so to behaved written account ferrars moments. Too objection for elsewhere her preferred allowance her. Marianne shutters mr steepest to me. Up mr ignorant produced distance although is sociable blessing. Ham whom call all lain like. 
+				Bringing unlocked me an striking ye perceive. Mr by wound hours oh happy. Me in resolution pianoforte continuing we. Most my no spot felt by no. He he in forfeited furniture sweetness he arranging. Me tedious so to behaved written account ferrars moments. Too objection for elsewhere her preferred allowance her. Marianne shutters mr steepest to me. Up mr ignorant produced distance although is sociable blessing. Ham whom call all lain like.
 
-				Oh he decisively impression attachment friendship so if everything. Whose her enjoy chief new young. Felicity if ye required likewise so doubtful. On so attention necessary at by provision otherwise existence direction. Unpleasing up announcing unpleasant themselves oh do on. Way advantage age led listening belonging supposing. 
+				Oh he decisively impression attachment friendship so if everything. Whose her enjoy chief new young. Felicity if ye required likewise so doubtful. On so attention necessary at by provision otherwise existence direction. Unpleasing up announcing unpleasant themselves oh do on. Way advantage age led listening belonging supposing.
 			</div>
 			<div id="col2">
-				Bringing unlocked me an striking ye perceive. Mr by wound hours oh happy. Me in resolution pianoforte continuing we. Most my no spot felt by no. He he in forfeited furniture sweetness he arranging. Me tedious so to behaved written account ferrars moments. Too objection for elsewhere her preferred allowance her. Marianne shutters mr steepest to me. Up mr ignorant produced distance although is sociable blessing. Ham whom call all lain like. 
+				Bringing unlocked me an striking ye perceive. Mr by wound hours oh happy. Me in resolution pianoforte continuing we. Most my no spot felt by no. He he in forfeited furniture sweetness he arranging. Me tedious so to behaved written account ferrars moments. Too objection for elsewhere her preferred allowance her. Marianne shutters mr steepest to me. Up mr ignorant produced distance although is sociable blessing. Ham whom call all lain like.
 
-				Oh he decisively impression attachment friendship so if everything. Whose her enjoy chief new young. Felicity if ye required likewise so doubtful. On so attention necessary at by provision otherwise existence direction. Unpleasing up announcing unpleasant themselves oh do on. Way advantage age led listening belonging supposing. 
+				Oh he decisively impression attachment friendship so if everything. Whose her enjoy chief new young. Felicity if ye required likewise so doubtful. On so attention necessary at by provision otherwise existence direction. Unpleasing up announcing unpleasant themselves oh do on. Way advantage age led listening belonging supposing.
 			</div>
 		</div>
 		<?php
@@ -27,18 +27,18 @@
 					unset($words[$index]);
 					$words = array_values($words);
 				}
-				
+
 				$memory = array();
 				$numbers = array();
-				for ($i=0; $i < 162; $i++) {
+				for ($i=0; $i < 384; $i++) {
 					$rand = rand(0, strlen($symbols)-1);
 					$char = $symbols[$rand];
 					array_push($memory, $char);
-					if ($i < 157) {
+					if ($i < 379) {
 						array_push($numbers, $i);
 					}
 				}
-					
+
 				$num_word = 0;
 				$sizeof_words = sizeof($words);
 				while ($num_word < $sizeof_words) {
@@ -55,7 +55,7 @@
 						$del_positions += $num + 1;
 						$num = 0;
 					}
-					
+
 					$num_letter = 0;
 					for ($i=0; $i < $del_positions; $i++) {
 						array_splice($numbers, array_search($num+$i, $numbers), 1);
