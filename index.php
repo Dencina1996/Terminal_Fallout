@@ -18,22 +18,31 @@
 				Oh he decisively impression attachment friendship so if everything. Whose her enjoy chief new young. Felicity if ye required likewise so doubtful. On so attention necessary at by provision otherwise existence direction. Unpleasing up announcing unpleasant themselves oh do on. Way advantage age led listening belonging supposing.
 			</div>
 		</div>
+		<script type="text/javascript" src="scripts.js"></script>
 		<?php
 				$symbols = "!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
 				$file = file("palabrasTerminal.txt");
-				$words = explode(";", $file[0]);
+				$words = explode(";", strtoupper($file[0]));
 				while (sizeof($words) > 6) {
 					$index = rand(0, sizeof($words)-1);
 					unset($words[$index]);
 					$words = array_values($words);
 				}
 
-				$memory = array();
+				$memory_dump = array();
 				$numbers = array();
 				for ($i=0; $i < 384; $i++) {
 					$rand = rand(0, strlen($symbols)-1);
-					$char = $symbols[$rand];
-					array_push($memory, $char);
+					// htmlspecialchars() con el párametro ENT_QUOTES, convierte todos los caracteres especiales (además de las comillas dobles y las simples)
+					$char = htmlspecialchars($symbols[$rand], ENT_QUOTES);
+					if ($i > 0) {
+						if (($char == "!") && ($memory_dump[$i-1] == "<")) {
+							$rand = rand(1, strlen($symbols)-1);
+							$char = htmlspecialchars($symbols[$rand], ENT_QUOTES);
+						}
+					}
+
+					array_push($memory_dump, $char);
 					if ($i < 379) {
 						array_push($numbers, $i);
 					}
@@ -60,15 +69,21 @@
 					for ($i=0; $i < $del_positions; $i++) {
 						array_splice($numbers, array_search($num+$i, $numbers), 1);
 						if (($num+$i) >= $copy && $num_letter < $length_word) {
-							$memory[$num+$i] = $word[$num_letter];
+							if (($num+$i) == $copy) {
+								$span = html_entity_decode("<span onclick='checkWord(\"".$word."\")' class='terminalWords'>").$word[$num_letter];
+								$memory_dump[$num+$i] = $span;
+							} elseif ($num_letter == ($length_word - 1)) {
+								$memory_dump[$num+$i] = $word[$num_letter].html_entity_decode("</span>");
+							} else {
+								$memory_dump[$num+$i] = $word[$num_letter];
+							}
 							$num_letter += 1;
 						}
 					}
 					$num_word += 1;
 				}
 				// Mostramos el resultado en un párrafo (Para hacer pruebas!)
-				// htmlspecialchars() con el párametro ENT_QUOTES, convierte las comillas dobles y las simples
-				$result = htmlspecialchars(implode($memory), ENT_QUOTES);
+				$result = implode($memory_dump);
 				echo "<p style='color:white'>".$result."</p>";
 				// Guardamos la contraseña en un párrafo oculto (eligimos una de las 6 palabras aleatoriamente)
 				echo "<p hidden id='password'>".$words[rand(0, sizeof($words)-1)]."</p>";
