@@ -70,6 +70,8 @@
 				// htmlspecialchars() con el párametro ENT_QUOTES, convierte las comillas dobles y las simples
 				$result = htmlspecialchars(implode($memory), ENT_QUOTES);
 				echo "<p style='color:white'>".$result."</p>";
+				// Guardamos la contraseña en un párrafo oculto (eligimos una de las 6 palabras aleatoriamente)
+				echo "<p hidden id='password'>".$words[rand(0, sizeof($words)-1)]."</p>";
 		?>
 	</body>
 </html>
