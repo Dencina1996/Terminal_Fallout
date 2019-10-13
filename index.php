@@ -1,92 +1,72 @@
 <!DOCTYPE html>
+<?php 
+	$words = explode(";", file_get_contents('palabrasTerminal.txt'));
+	echo '<p hidden>'.$words[rand(0,19)].'</p>'
+?>
 <html>
 	<head>
 		<meta charset="utf-8">
+		<link rel="shortcut icon" href="favicon.ico">
 		<title>Terminal Fallout 3</title>
 		<link rel="stylesheet" type="text/css" href="styles.css">
+		<script type="text/javascript" src="scripts.js"></script>
+		<script type="text/javascript">
+			setTimeout(function(){ 
+				document.getElementsByTagName('html')[0].style.background = "url('staticPage.jpg') no-repeat center center fixed";
+				document.getElementsByTagName('html')[0].style.backgroundSize = "cover";
+				document.getElementsByTagName('html')[0].style.backgroundColor = "black";
+				document.getElementsByTagName('body')[0].style.visibility = "visible";
+				 }, 1200);
+		</script>
 	</head>
 	<body>
-		<div>
-			<div id="col1">
-				Bringing unlocked me an striking ye perceive. Mr by wound hours oh happy. Me in resolution pianoforte continuing we. Most my no spot felt by no. He he in forfeited furniture sweetness he arranging. Me tedious so to behaved written account ferrars moments. Too objection for elsewhere her preferred allowance her. Marianne shutters mr steepest to me. Up mr ignorant produced distance although is sociable blessing. Ham whom call all lain like.
-
-				Oh he decisively impression attachment friendship so if everything. Whose her enjoy chief new young. Felicity if ye required likewise so doubtful. On so attention necessary at by provision otherwise existence direction. Unpleasing up announcing unpleasant themselves oh do on. Way advantage age led listening belonging supposing.
+		<div id="attemptCounter">
+			<span>4</span> INTENTO(S) RESTANTES:
+				<div class="attemptDiv"></div>
+				<div class="attemptDiv"></div>
+				<div class="attemptDiv"></div>
+				<div class="attemptDiv"></div>
+		</div>
+		<div id="contentDiv">
+			<br>
+			<div id="leftHexCol">
+				<?php
+					$hex = array("0xF91C","0xF928","0xF934","0xF940","0xF94C","0xF958","0xF964","0xF970","0xF97C","0xF988","0xF994","0xF9A0","0xF9AC","0xF9B8","0xF9C4","0xF9D0","0xF9DC","0xF9E8","0xF9F4","0xFA00","0xFA0C","0xFA18","0xFA24","0xFA30","0xFA3C","0xFA48","0xFA54","0xFA60","0xFA6C","0xFA78","0xFA84","0xFA90","0xFA9C","0xFAA8");
+					for ($i = 0; $i < 17; $i++) { 
+						echo $hex[$i].'<br>';
+					}
+				?>
 			</div>
-			<div id="col2">
-				Bringing unlocked me an striking ye perceive. Mr by wound hours oh happy. Me in resolution pianoforte continuing we. Most my no spot felt by no. He he in forfeited furniture sweetness he arranging. Me tedious so to behaved written account ferrars moments. Too objection for elsewhere her preferred allowance her. Marianne shutters mr steepest to me. Up mr ignorant produced distance although is sociable blessing. Ham whom call all lain like.
-
-				Oh he decisively impression attachment friendship so if everything. Whose her enjoy chief new young. Felicity if ye required likewise so doubtful. On so attention necessary at by provision otherwise existence direction. Unpleasing up announcing unpleasant themselves oh do on. Way advantage age led listening belonging supposing.
+			<div id="leftSymCol">
+				<?php
+					$symbols = "!\"#$%&'()*+,-./:;?=>@[\]^_`{|}~";
+					for ($i = 0; $i < 17; $i++) { 
+						for ($x = 0; $x <= 12; $x++) { 
+							echo '<span class="symbol">'.$symbols[rand(0,30)].'</span>';	
+						}
+						echo '<br>';
+					}
+				?>
+			</div>
+			<div id="rightHexCol">
+				<?php
+					$hex = array("0xF91C","0xF928","0xF934","0xF940","0xF94C","0xF958","0xF964","0xF970","0xF97C","0xF988","0xF994","0xF9A0","0xF9AC","0xF9B8","0xF9C4","0xF9D0","0xF9DC","0xF9E8","0xF9F4","0xFA00","0xFA0C","0xFA18","0xFA24","0xFA30","0xFA3C","0xFA48","0xFA54","0xFA60","0xFA6C","0xFA78","0xFA84","0xFA90","0xFA9C","0xFAA8");
+					for ($i = 17; $i < 34; $i++) { 
+						echo $hex[$i].'<br>';
+					}
+				?>
+			</div>
+			<div id="rightSymCol">
+				<?php
+					$symbols = "!\"#$%&'()*+,-./:;?=>@[\]^_`{|}~";
+					for ($i = 0; $i < 17; $i++) { 
+						for ($x = 0; $x <= 12; $x++) { 
+							echo '<span class="symbol">'.$symbols[rand(0,30)].'</span>';	
+						}
+						echo '<br>';
+					}
+				?>
 			</div>
 		</div>
-		<script type="text/javascript" src="scripts.js"></script>
-		<?php
-				$symbols = "!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
-				$file = file("palabrasTerminal.txt");
-				$words = explode(";", strtoupper($file[0]));
-				while (sizeof($words) > 6) {
-					$index = rand(0, sizeof($words)-1);
-					unset($words[$index]);
-					$words = array_values($words);
-				}
-
-				$memory_dump = array();
-				$numbers = array();
-				for ($i=0; $i < 384; $i++) {
-					$rand = rand(0, strlen($symbols)-1);
-					// htmlspecialchars() con el párametro ENT_QUOTES, convierte todos los caracteres especiales (además de las comillas dobles y las simples)
-					$char = htmlspecialchars($symbols[$rand], ENT_QUOTES);
-					if ($i > 0) {
-						if (($char == "!") && ($memory_dump[$i-1] == "<")) {
-							$rand = rand(1, strlen($symbols)-1);
-							$char = htmlspecialchars($symbols[$rand], ENT_QUOTES);
-						}
-					}
-
-					array_push($memory_dump, $char);
-					if ($i < 379) {
-						array_push($numbers, $i);
-					}
-				}
-
-				$num_word = 0;
-				$sizeof_words = sizeof($words);
-				while ($num_word < $sizeof_words) {
-					$word = $words[$num_word];
-					$length_word = strlen($word);
-					$index = rand(0, sizeof($numbers)-1);
-					$del_positions = strlen($words[0])+$length_word;
-					$num = $numbers[$index];
-					$copy = $num;
-					if ($num > 4) {
-						$del_positions += $length_word + 2;
-						$num = ($num - $length_word) - 1;
-					} else {
-						$del_positions += $num + 1;
-						$num = 0;
-					}
-
-					$num_letter = 0;
-					for ($i=0; $i < $del_positions; $i++) {
-						array_splice($numbers, array_search($num+$i, $numbers), 1);
-						if (($num+$i) >= $copy && $num_letter < $length_word) {
-							if (($num+$i) == $copy) {
-								$span = html_entity_decode("<span onclick='checkWord(\"".$word."\")' class='terminalWords'>").$word[$num_letter];
-								$memory_dump[$num+$i] = $span;
-							} elseif ($num_letter == ($length_word - 1)) {
-								$memory_dump[$num+$i] = $word[$num_letter].html_entity_decode("</span>");
-							} else {
-								$memory_dump[$num+$i] = $word[$num_letter];
-							}
-							$num_letter += 1;
-						}
-					}
-					$num_word += 1;
-				}
-				// Mostramos el resultado en un párrafo (Para hacer pruebas!)
-				$result = implode($memory_dump);
-				echo "<p style='color:white'>".$result."</p>";
-				// Guardamos la contraseña en un párrafo oculto (eligimos una de las 6 palabras aleatoriamente)
-				echo "<p hidden id='password'>".$words[rand(0, sizeof($words)-1)]."</p>";
-		?>
 	</body>
 </html>

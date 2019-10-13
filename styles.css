@@ -1,25 +1,71 @@
-body {	background: url('http://inn.spb.ru/images/200/DSC100213678.jpg') no-repeat center center fixed;
-		background-size: cover;
-		display: table;
-		top: 0;
-		left: 0;
+@font-face {	font-family: FSEX300;
+				src: url(FSEX300.ttf);
 	}
 
-div {	background-color: red;
-		height: 40%;
-		width: 30%;
-		margin: auto;
+html {	background: url(screenGif.gif) no-repeat center center fixed; 
+  		background-color: black;
+  		background-size: cover;
+  		font-family: 'FSEX300';
+  		font-size: 1.5vw;
+  		overflow: hidden;
+	}
+
+body {	visibility: hidden;
 
 }
 
-#col1 {	height: 100%;
-		width: 50%;
-		float: left;
-		background-color: yellow;
-}
+#attemptCounter {	width: 40vw;
+					background-color: black;
+					color: #00d057;
+					margin: auto;
+					margin-top: 150px;
+					position: relative;
+					font-size: 2vw
+	}
 
-#col2 {	height: 100%;
-		width: 50%;
-		float: right;
-		background-color: blue;
-}
+#attemptCounter > .attemptDiv {	height: 15px;
+								width: 15px;
+								background-color: #00d057;
+								display: inline-block;
+								font-size: 2.5vw
+	}
+
+#contentDiv {	position: relative;
+				width: 45vw;
+				height: 50vh;
+				background: black;
+				border-radius: 100px / 50px;
+				color: #00d057;
+				text-align: justify;
+				text-indent: .1em;
+				margin: auto;
+				padding: 30px;
+				display: flex;
+	}
+
+#leftHexCol {	width: 5vw;
+				text-align: left;
+				display: table-column;
+	}
+
+#leftSymCol {	width: 12vw;
+				text-align: justify;
+				letter-spacing: 1px;
+				display: inline-block;
+	}
+
+#rightHexCol {	width: 5vw;
+				text-align: left;
+				display: table-column;
+	}
+
+#rightSymCol {	width: 12vw;
+				text-align: justify;
+				letter-spacing: 1px;
+				display: inline-block;
+	}
+
+span:hover {	background-color: #00d057;
+				color: black;
+				cursor: default;
+	}
