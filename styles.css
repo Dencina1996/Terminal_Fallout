@@ -65,6 +65,15 @@ body {	visibility: hidden;
 				display: inline-block;
 	}
 
+#rightCheckCol {	width: 12vw;
+					text-align: left;
+
+	}
+
+#rightCheckCol > div {	position: absolute;
+						bottom: 25px;
+	}
+
 span:hover {	background-color: #00d057;
 				color: black;
 				cursor: default;

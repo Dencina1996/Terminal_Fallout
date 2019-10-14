@@ -70,6 +70,11 @@
 					}
 				?>
 			</div>
+			<div id="rightCheckCol">
+				<div>
+					> <span id="check"></span><br>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>
