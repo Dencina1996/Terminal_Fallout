@@ -1,19 +1,23 @@
 var tries = 0;
+var attempts = 4;
 function checkWord(word) {
+	word.innerHTML.replace('<br>', '');
 	word.onclick = null;	
 	if (tries < 4) {
 		var PalabrasinBr=word.innerHTML.replace('<br>', '');
-		document.getElementById("rightCheckCol").innerHTML+="<br>>"+PalabrasinBr;
+		document.getElementById("rightCheckCol").innerHTML+="<br>> "+PalabrasinBr;
 		//word.innerHTML="<span class='terminalWords'>*****</span>";
 		var pass = document.getElementById("password").innerHTML;
 		if (PalabrasinBr === pass) {
 						//TODO: Falta añadir código (contraseña correcta)
 			//alert("Correcta!")
-			document.getElementById("rightCheckCol").innerHTML+="<br>>Congratualtions!";
+			document.getElementById("rightCheckCol").innerHTML+="> Congratulations!<br>You won!";
 			var spanElements=document.getElementsByTagName('span');
 			tries=5;
 		} else {
+			attemptCount();
 			var repeticionesLetras=0;
+			word.innerHTML = '*****';
 			for (var i = 0 ; i <= pass.length; i++) {
 				if (PalabrasinBr[i]==pass[i]) {
 					repeticionesLetras++;
@@ -22,13 +26,13 @@ function checkWord(word) {
 			repeticionesLetras=repeticionesLetras-1;
 			//TODO: Falta añadir código (contraseña sea incorrecta)
 			//document.getElementById(word).innerHTML="*****";
-			document.getElementById("rightCheckCol").innerHTML+="<br>>Entry denied<br>>"+repeticionesLetras+"/"+pass.length+" correct"
+			document.getElementById("rightCheckCol").innerHTML+="<br>> Entry denied<br>> "+repeticionesLetras+"/"+pass.length+" correct"
 		    tries++;
 		}
 	}
 	if(tries==4) {
 		document.getElementsByTagName('span').onclick = null;
-		document.getElementById("rightCheckCol").innerHTML+="<br>>Terminal blocked";
+		document.getElementById("rightCheckCol").innerHTML+="<br>> Terminal blocked";
 		tries++;
 		//TODO: Añadir código (Fin del juego)
 	}
@@ -49,4 +53,9 @@ function sendCheck(word) {
 
 function cleanCheck() {
 	document.getElementById('check').innerHTML = '';	
+}
+
+function attemptCount() {
+	document.getElementsByClassName('attemptDiv')[attempts-1].style.visibility = 'hidden';
+	attempts--;
 }
