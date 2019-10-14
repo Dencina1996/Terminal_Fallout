@@ -70,6 +70,9 @@
 					}
 				?>
 			</div>
+			<div id="prompt">
+				
+			</div>
 		</div>
 	</body>
 </html>

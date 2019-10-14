@@ -54,7 +54,7 @@
 						array_splice($numbers, array_search($num+$i, $numbers), 1);
 						if (($num+$i) >= $copy && $num_letter < $length_word) {
 							if (($num+$i) == $copy) {
-								$span = html_entity_decode("<span onclick='checkWord(\"".$word."\")' class='terminalWords'>").$word[$num_letter];
+								$span = html_entity_decode("<span onclick='checkWord(this)' class='terminalWords'>").$word[$num_letter];
 								$memory_dump[$num+$i] = $span;
 							} elseif ($num_letter == ($length_word - 1)) {
 								$memory_dump[$num+$i] = $word[$num_letter].html_entity_decode("</span>");
