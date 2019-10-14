@@ -14,7 +14,7 @@
 				$columns = 17;
 				$characters = 12;
 				$column_length = $columns * $characters;
-				$sizeof_words = sizeof($words);
+				$length_word = strlen($words[0]);
 
 				for ($i=0; $i < $column_length * 2; $i++) {
 					$rand = rand(0, strlen($symbols)-1);
@@ -28,12 +28,17 @@
 					}
 
 					array_push($memory_dump, $char);
-					if ($i < ($column_length * 2) - $sizeof_words) {
-						array_push($numbers, $i);
+					if ($i < ($column_length * 2) - $length_word) {
+						if ($i >= $column_length || $i <= ($column_length - $length_word)) {
+							array_push($numbers, $i);
+						} else {
+							echo "<script>console.log('I: ".$i."');</script>";
+						}
 					}
 				}
 
 				$num_word = 0;
+				$sizeof_words = sizeof($words);
 				while ($num_word < $sizeof_words) {
 					$word = $words[$num_word];
 					$length_word = strlen($word);
@@ -54,7 +59,7 @@
 						array_splice($numbers, array_search($num+$i, $numbers), 1);
 						if (($num+$i) >= $copy && $num_letter < $length_word) {
 							if (($num+$i) == $copy) {
-								$span = html_entity_decode("<span onclick='checkWord(\"".$word."\")' class='terminalWords'>").$word[$num_letter];
+								$span = html_entity_decode("<span onclick='checkWord(event)' class='terminalWords'>").$word[$num_letter];
 								$memory_dump[$num+$i] = $span;
 							} elseif ($num_letter == ($length_word - 1)) {
 								$memory_dump[$num+$i] = $word[$num_letter].html_entity_decode("</span>");
