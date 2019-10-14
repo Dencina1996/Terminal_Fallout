@@ -70,8 +70,12 @@
 					}
 				?>
 			</div>
-			<div id="prompt">
-				
+
+			
+			<div id="rightCheckCol">
+				<div>
+					> <span id="check"></span><br>
+				</div>
 			</div>
 		</div>
 	</body>
