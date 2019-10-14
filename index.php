@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<?php 
-	$words = explode(";", file_get_contents('palabrasTerminal.txt'));
-	echo '<p hidden>'.$words[rand(0,19)].'</p>'
-?>
+<?php include 'codeWare.php';?>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -40,9 +37,12 @@
 			<div id="leftSymCol">
 				<?php
 					$symbols = "!\"#$%&'()*+,-./:;?=>@[\]^_`{|}~";
+					$index = 0;
 					for ($i = 0; $i < 17; $i++) { 
-						for ($x = 0; $x <= 12; $x++) { 
-							echo '<span class="symbol">'.$symbols[rand(0,30)].'</span>';	
+						for ($x = 0; $x < 12; $x++) { 
+							echo $col1[$index];
+							$index++;
+							//echo '<span class="symbol">'.$symbols[rand(0,30)].'</span>';	
 						}
 						echo '<br>';
 					}
@@ -59,9 +59,12 @@
 			<div id="rightSymCol">
 				<?php
 					$symbols = "!\"#$%&'()*+,-./:;?=>@[\]^_`{|}~";
+					$index = 0;
 					for ($i = 0; $i < 17; $i++) { 
-						for ($x = 0; $x <= 12; $x++) { 
-							echo '<span class="symbol">'.$symbols[rand(0,30)].'</span>';	
+						for ($x = 0; $x < 12; $x++) { 
+							echo $col2[$index];
+							$index++;
+							//echo '<span class="symbol">'.$symbols[rand(0,30)].'</span>';	
 						}
 						echo '<br>';
 					}

@@ -1,7 +1,8 @@
-/*
+<?php
+				$symbols = "!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
 				$file = file("palabrasTerminal.txt");
 				$words = explode(";", strtoupper($file[0]));
-				
+
 				while (sizeof($words) > 6) {
 					$index = rand(0, sizeof($words)-1);
 					unset($words[$index]);
@@ -10,7 +11,12 @@
 
 				$memory_dump = array();
 				$numbers = array();
-				for ($i=0; $i < 384; $i++) {
+				$columns = 17;
+				$characters = 12;
+				$column_length = $columns * $characters;
+				$sizeof_words = sizeof($words);
+
+				for ($i=0; $i < $column_length * 2; $i++) {
 					$rand = rand(0, strlen($symbols)-1);
 					// htmlspecialchars() con el párametro ENT_QUOTES, convierte todos los caracteres especiales (además de las comillas dobles y las simples)
 					$char = htmlspecialchars($symbols[$rand], ENT_QUOTES);
@@ -22,13 +28,12 @@
 					}
 
 					array_push($memory_dump, $char);
-					if ($i < 379) {
+					if ($i < ($column_length * 2) - $sizeof_words) {
 						array_push($numbers, $i);
 					}
 				}
 
 				$num_word = 0;
-				$sizeof_words = sizeof($words);
 				while ($num_word < $sizeof_words) {
 					$word = $words[$num_word];
 					$length_word = strlen($word);
@@ -61,9 +66,13 @@
 					}
 					$num_word += 1;
 				}
+
 				// Mostramos el resultado en un párrafo (Para hacer pruebas!)
-				$result = implode($memory_dump);
-				echo "<p style='color:white'>".$result."</p>";
+				$col1 = array_slice($memory_dump, 0, $column_length);
+				$col2 = array_slice($memory_dump, $column_length, $column_length);
+
+				//$result = implode($memory_dump);
+				//echo "<p style='color:white'>".$result."</p>";
 				// Guardamos la contraseña en un párrafo oculto (eligimos una de las 6 palabras aleatoriamente)
 				echo "<p hidden id='password'>".$words[rand(0, sizeof($words)-1)]."</p>";
-				*/
+?>
