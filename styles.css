@@ -2,7 +2,7 @@
 				src: url(FSEX300.ttf);
 	}
 
-html {	background: url(screenGif.gif) no-repeat center center fixed; 
+html {	background: url(screenGif.gif) no-repeat center center fixed;
   		background-color: black;
   		background-size: cover;
   		font-family: 'FSEX300';
@@ -73,7 +73,8 @@ body {	visibility: hidden;
 						bottom: 25px;
 	}
 
-span:hover {	background-color: #00d057;
-				color: black;
-				cursor: default;
-	}
+.terminalWords:hover {
+	background-color: #00d057;
+	color: black;
+	cursor: default;
+}

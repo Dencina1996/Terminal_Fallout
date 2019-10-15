@@ -31,8 +31,6 @@
 					if ($i < ($column_length * 2) - $length_word) {
 						if ($i >= $column_length || $i <= ($column_length - $length_word)) {
 							array_push($numbers, $i);
-						} else {
-							echo "<script>console.log('I: ".$i."');</script>";
 						}
 					}
 				}
