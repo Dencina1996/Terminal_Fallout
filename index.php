@@ -17,7 +17,9 @@
 		</script>
 	</head>
 	<body>
+
 		<div id="attemptCounter">
+			<p>ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL</p>
 			<span>4</span> INTENTO(S) RESTANTES:
 				<div class="attemptDiv"></div>
 				<div class="attemptDiv"></div>
@@ -76,7 +78,7 @@
 				<div id="rightCheckColScrollUp">
 					<div id="rightCheckColText"></div>
 					<div id="promptWrite">
-						<span id="check"></span><br>
+						<span id="check"></span>
 					</div>
 				</div>
 			</div>
