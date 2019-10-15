@@ -17,8 +17,10 @@
 		</script>
 	</head>
 	<body>
+
 		<div id="attemptCounter">
-			<span id="attempts">4</span> INTENTO(S) RESTANTES:
+			<p>ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL</p>
+			<span id="attempts">4</span> ATTEMPT(S) LEFT:
 				<div class="attemptDiv"></div>
 				<div class="attemptDiv"></div>
 				<div class="attemptDiv"></div>
@@ -73,8 +75,11 @@
 
 
 			<div id="rightCheckCol">
-				<div>
-					> <span id="check"></span><br>
+				<div id="rightCheckColScrollUp">
+					<div id="rightCheckColText"></div>
+					<div id="promptWrite">
+						<span id="check"></span>
+					</div>
 				</div>
 			</div>
 		</div>

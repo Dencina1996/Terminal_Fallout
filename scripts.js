@@ -14,10 +14,10 @@ function checkWord(word) {
       indexOfBr = word.innerHTML.indexOf("<br>");
     }
 		var PalabrasinBr=word.innerHTML.replace('<br>', '');
-		document.getElementById("rightCheckCol").innerHTML+="<br>> "+PalabrasinBr;
+		document.getElementById("rightCheckColText").innerHTML+="<br>> "+PalabrasinBr;
 		var pass = document.getElementById("password").innerHTML;
 		if (PalabrasinBr === pass) {
-			document.getElementById("rightCheckCol").innerHTML+="> Congratulations!<br>You won!";
+			document.getElementById("rightCheckColText").innerHTML+="<br> > Congratulations!<br>You won!";
 			var spanElements=document.getElementsByTagName('span');
 			tries=5;
 		} else {
@@ -43,13 +43,13 @@ function checkWord(word) {
 				}
 			}
 			repeticionesLetras=repeticionesLetras-1;
-			document.getElementById("rightCheckCol").innerHTML+="<br>> Entry denied<br>> "+repeticionesLetras+"/"+pass.length+" correct"
+			document.getElementById("rightCheckColText").innerHTML+="<br>> Entry denied<br>> "+repeticionesLetras+"/"+pass.length+" correct"
 		  tries++;
 		}
 	}
 	if(tries==4) {
 		document.getElementsByTagName('span').onclick = null;
-		document.getElementById("rightCheckCol").innerHTML+="<br>> Terminal blocked";
+		document.getElementById("rightCheckColText").innerHTML+="<br>> Terminal blocked";
 		tries++;
 	}
 }
@@ -78,10 +78,6 @@ function attemptCount() {
   document.getElementById('attempts').innerHTML = attempts;
 }
 
-function nofunction() {
-  console.log("void");
-}
-
 function changeClass(text) {
   var elements = document.getElementsByClassName('terminalWords');
   for (var i = 0; i < elements.length; i++) {
@@ -91,5 +87,4 @@ function changeClass(text) {
       elements[i].className = "fail";
     }
   }
-  console.log(elements);
 }
