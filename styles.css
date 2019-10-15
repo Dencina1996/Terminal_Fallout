@@ -64,13 +64,27 @@ body {	visibility: hidden;
 				display: inline-block;
 	}
 
+
 #rightCheckCol {	width: 12vw;
 					text-align: left;
+					
+					position: relative;					
 
 	}
+#rightCheckColScrollUp{
+			bottom: 25px;
+			position: absolute;
+}	
+#rightCheckColText{
+					vertical-align: text-bottom;
 
-#rightCheckCol > div {	position: absolute;
+}
+
+#rightCheckCol #promptWrite {
+					vertical-align: text-bottom;
+						/*position: absolute;
 						bottom: 25px;
+*/
 	}
 
 span:hover {	background-color: #00d057;
