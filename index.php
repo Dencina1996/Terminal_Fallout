@@ -44,7 +44,6 @@
 						for ($x = 0; $x < 12; $x++) {
 							echo $col1[$index];
 							$index++;
-							//echo '<span class="symbol">'.$symbols[rand(0,30)].'</span>';
 						}
 						echo '<br>';
 					}
@@ -66,14 +65,11 @@
 						for ($x = 0; $x < 12; $x++) {
 							echo $col2[$index];
 							$index++;
-							//echo '<span class="symbol">'.$symbols[rand(0,30)].'</span>';
 						}
 						echo '<br>';
 					}
 				?>
 			</div>
-
-
 			<div id="rightCheckCol">
 				<div id="rightCheckColScrollUp">
 					<div id="rightCheckColText"></div>
