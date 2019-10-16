@@ -17,9 +17,10 @@ function checkWord(word) {
 		document.getElementById("rightCheckColText").innerHTML+="<br>> "+PalabrasinBr;
 		var pass = document.getElementById("password").innerHTML;
 		if (PalabrasinBr === pass) {
-			document.getElementById("rightCheckColText").innerHTML+="<br> > Congratulations!<br>You won!";
+			document.getElementById("rightCheckColText").innerHTML+="<br> > Congratulations<br>You won!";
 			var spanElements=document.getElementsByTagName('span');
 			tries=5;
+      disableSpans();
 		} else {
 			attemptCount();
       changeClass(text);
@@ -28,14 +29,14 @@ function checkWord(word) {
         var replacement = "";
         for (var i = 0; i < word_length; i++) {
           if (i == indexOfBr) {
-            replacement += "<br>*";
+            replacement += "<br>.";
           } else {
-            replacement += "*";
+            replacement += ".";
           }
         }
         word.innerHTML = replacement;
       } else {
-        word.innerHTML = "*****";
+        word.innerHTML = ".....";
       }
 			for (var i = 0 ; i <= pass.length; i++) {
 				if (PalabrasinBr[i]==pass[i]) {
@@ -51,6 +52,7 @@ function checkWord(word) {
 		document.getElementsByTagName('span').onclick = null;
 		document.getElementById("rightCheckColText").innerHTML+="<br>> Terminal blocked";
 		tries++;
+    disableSpans();
 	}
 }
 
@@ -86,5 +88,16 @@ function changeClass(text) {
       elements[i].onmouseout = function() {};
       elements[i].className = "fail";
     }
+  }
+}
+
+function disableSpans(){
+  var elements = document.getElementsByClassName('terminalWords');
+  // Importante poner el length del array de elementos, ya que en cada iteración cambia el length
+  let elem_length = elements.length;
+  for (var i = 0; i < elem_length; i++) {
+    elements[0].onmouseover = function() {};
+    elements[0].onmouseout = function() {};
+    elements[0].className = "fail";
   }
 }
