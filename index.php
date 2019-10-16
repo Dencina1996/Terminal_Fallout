@@ -17,7 +17,7 @@
 		</script>
 	</head>
 	<body>
-
+		<div id="generalContainer">
 		<div id="attemptCounter">
 			<p>ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL</p>
 			<span id="attempts">4</span> ATTEMPT(S) LEFT:
@@ -28,7 +28,7 @@
 		</div>
 		<div id="contentDiv">
 			<br>
-			<div id="leftHexCol">
+			<div id="leftHexCol" class="thinColumn">
 				<?php
 					$hex = array("0xF91C","0xF928","0xF934","0xF940","0xF94C","0xF958","0xF964","0xF970","0xF97C","0xF988","0xF994","0xF9A0","0xF9AC","0xF9B8","0xF9C4","0xF9D0","0xF9DC","0xF9E8","0xF9F4","0xFA00","0xFA0C","0xFA18","0xFA24","0xFA30","0xFA3C","0xFA48","0xFA54","0xFA60","0xFA6C","0xFA78","0xFA84","0xFA90","0xFA9C","0xFAA8");
 					for ($i = 0; $i < 17; $i++) {
@@ -36,7 +36,7 @@
 					}
 				?>
 			</div>
-			<div id="leftSymCol">
+			<div id="leftSymCol" class="thickColumn">
 				<?php
 					$symbols = "!\"#$%&'()*+,-./:;?=>@[\]^_`{|}~";
 					$index = 0;
@@ -50,7 +50,7 @@
 					}
 				?>
 			</div>
-			<div id="rightHexCol">
+			<div id="rightHexCol" class="thinColumn">
 				<?php
 					$hex = array("0xF91C","0xF928","0xF934","0xF940","0xF94C","0xF958","0xF964","0xF970","0xF97C","0xF988","0xF994","0xF9A0","0xF9AC","0xF9B8","0xF9C4","0xF9D0","0xF9DC","0xF9E8","0xF9F4","0xFA00","0xFA0C","0xFA18","0xFA24","0xFA30","0xFA3C","0xFA48","0xFA54","0xFA60","0xFA6C","0xFA78","0xFA84","0xFA90","0xFA9C","0xFAA8");
 					for ($i = 17; $i < 34; $i++) {
@@ -58,7 +58,7 @@
 					}
 				?>
 			</div>
-			<div id="rightSymCol">
+			<div id="rightSymCol" class="thickColumn">
 				<?php
 					$symbols = "!\"#$%&'()*+,-./:;?=>@[\]^_`{|}~";
 					$index = 0;
@@ -82,6 +82,7 @@
 					</div>
 				</div>
 			</div>
+		</div>
 		</div>
 	</body>
 </html>

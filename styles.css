@@ -13,14 +13,20 @@ html {	background: url(screenGif.gif) no-repeat center center fixed;
 body {	visibility: hidden;
 
 }
+#generalContainer{
+				width: 45vw;
+				height: 50vh;
+				padding: 30px;				
+				margin: auto;
+}
 
-#attemptCounter {	width: 40vw;
-					background-color: black;
+#attemptCounter {	/*width: 40vw;
+					background-color: black;*/
 					color: #00d057;
 					margin: auto;
-					margin-top: 100px;
+					/*margin-top: 100px;*/
 					position: relative;
-					font-size: 2vw
+					font-size: 2vw;
 	}
 
 #attemptCounter > .attemptDiv {	height: 15px;
@@ -31,43 +37,32 @@ body {	visibility: hidden;
 	}
 
 #contentDiv {	position: relative;
-				width: 45vw;
+				/*width: 45vw;
 				height: 50vh;
-				background: black;
+				background: black;*/
 				border-radius: 100px / 50px;
 				color: #00d057;
 				text-align: justify;
 				margin: auto;
-				padding: 30px;
+				/*padding: 30px;*/
 				display: flex;
 	}
 
-#leftHexCol {	width: 5vw;
+.thinColumn{	width: 5vw;
+				margin-left: 5px;
 				text-align: left;
 				display: table-column;
 	}
 
-#leftSymCol {	width: 12vw;
+.thickColumn {	width: 12vw;
+				margin-left: 5px;
 				text-align: justify;
 				letter-spacing: 1px;
 				display: inline-block;
 	}
-
-#rightHexCol {	width: 5vw;
-				text-align: left;
-				display: table-column;
-	}
-
-#rightSymCol {	width: 12vw;
-				text-align: justify;
-				letter-spacing: 1px;
-				display: inline-block;
-	}
-
 
 #rightCheckCol {	width: 12vw;
 					text-align: left;
-
 					position: relative;
 
 	}
@@ -92,3 +87,42 @@ body {	visibility: hidden;
 	color: black;
 	cursor: default;
 }
+
+
+ /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+	#contentDiv{
+		background-color: red;
+	}
+	#generalContainer{
+		font-size: 2.5vw;
+	}
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+	#contentDiv{
+		background-color: purple;
+	}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+	#contentDiv{
+		background-color: green;
+	}
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+	#contentDiv{
+		background-color: grey;
+	}
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+	#contentDiv{
+		background-color: pink;
+	}
+} 
