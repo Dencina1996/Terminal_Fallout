@@ -1,8 +1,30 @@
+/*Reset CSS*/
+* {
+  margin : 0;
+  padding : 0;
+  outline : none;
+  border: 0;  
+  font-size: 100%;  
+  font: inherit;  
+  vertical-align: baseline; 
+}
+
+body {
+  -webkit-touch-callout: none;
+   -webkit-user-select: none;
+    -khtml-user-select: none;
+      -moz-user-select: none;
+       -ms-user-select: none;
+        -o-user-select: none;
+           user-select: none;
+           visibility: hidden;
+}
+
 @font-face {	font-family: FSEX300;
 				src: url(FSEX300.ttf);
 	}
 
-html {	background: url(screenGif.gif) no-repeat center center fixed;
+html {	background: url(screenGif.gif) no-repeat center fixed;
   		background-color: black;
   		background-size: cover;
   		font-family: 'FSEX300';
@@ -10,15 +32,37 @@ html {	background: url(screenGif.gif) no-repeat center center fixed;
   		overflow: hidden;
 	}
 
-body {	visibility: hidden;
+#gameTimer {	height: auto;
+				width: 5vw;
+				background-color: black;
+				border: 3px solid #00d057;
+				color: #00d057;
+				position: absolute;
+				z-index: 40;
+				padding: 1vw;
+				font-size: 2vw;
+				margin: 1vw;
+				text-align: center;	
+				border-radius: 100px / 50px; 
 	}
 
-#generalContainer {	width: 45vw;
-					height: 50vh;
-					padding: 30px;				
-					margin: auto;
-					margin-top: 10vh;
+#gameTimer:hover {	filter: opacity(.7);
 	}
+
+#generalContainer {	
+					position: absolute;
+					width: 45%;
+					height: 50%;
+					padding: 30px;
+					z-index: 35;
+					left: 0;
+					right: 0;
+					top: 0;
+					bottom: 0;			
+					margin: auto;
+					margin-top: 15vh;
+	}
+
 
 #attemptCounter {	color: #00d057;
 					margin: auto;
@@ -43,7 +87,8 @@ body {	visibility: hidden;
 				margin-top: 2vh;
 	}
 
-.thinColumn{	width: 5vw;
+.thinColumn{	
+				width: 5vw;
 				margin-left: 1vw;
 				text-align: left;
 				display: table-column;
@@ -78,6 +123,21 @@ body {	visibility: hidden;
 	}
 
 @media only screen and (max-width: 600px) {
-	#generalContainer {	font-size: 1.5vw;
+	#generalContainer {	
+		font-size: 1.5vw;
+		
 		}
-	}
+		
+}
+
+
+#TerminalImage{
+	position: absolute;
+	background-image: url(StaticPage.png) ;
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size:cover;
+	width: 100%;
+	height: 100%;
+	z-index: 20;
+}

@@ -6,25 +6,39 @@
 		<link rel="shortcut icon" href="favicon.ico">
 		<title>Terminal Fallout 3</title>
 		<link rel="stylesheet" type="text/css" href="styles.css">
+		<link rel="stylesheet" type="text/css" href="linesBackground.css">
 		<script type="text/javascript" src="scripts.js"></script>
 		<script type="text/javascript">
 			setTimeout(function(){
-				document.getElementsByTagName('html')[0].style.background = "url('staticPage.jpg') no-repeat center center fixed";
-				document.getElementsByTagName('html')[0].style.backgroundSize = "cover";
-				document.getElementsByTagName('html')[0].style.backgroundColor = "black";
+				document.getElementsByTagName('html')[0].style.background = "url('')";
+				document.getElementsByTagName('html')[0].style.backgroundSize = "";
+				document.getElementsByTagName('html')[0].style.backgroundColor = "";
 				document.getElementsByTagName('body')[0].style.visibility = "visible";
+				startTimer();
 				 }, 1200);
+
+
 		</script>
 	</head>
 	<body>
-		<div id="generalContainer">
-		<div id="attemptCounter">
-			<p>ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL</p>
-			<span id="attempts">4</span> ATTEMPT(S) LEFT:
-				<div class="attemptDiv"></div>
-				<div class="attemptDiv"></div>
-				<div class="attemptDiv"></div>
-				<div class="attemptDiv"></div>
+		<div id="gameTimer">
+			<label id="minLabel"></label>:<label id="secLabel"></label>
+		</div>
+		<div id="TerminalImage"></div>
+
+      	<div id="screen">
+        	<div id="layer"></div>
+        	<div id="overlay"></div>
+      	</div>
+
+		<div id="generalContainer" class="crt">
+			<div id="attemptCounter">
+				<p>ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL</p>
+				<span id="attempts">4</span> ATTEMPT(S) LEFT:
+					<div class="attemptDiv"></div>
+					<div class="attemptDiv"></div>
+					<div class="attemptDiv"></div>
+					<div class="attemptDiv"></div>
 		</div>
 		<div id="contentDiv">
 			<br>
@@ -78,6 +92,7 @@
 					</div>
 				</div>
 			</div>
+
 		</div>
 		</div>
 		<form hidden method="post" id="form" action="addRecord.php">
