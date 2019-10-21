@@ -24,8 +24,13 @@ const word_length = document.getElementById("password").innerHTML.length;
     		if (wordWithoutBr === pass) {
     			document.getElementById("rightCheckColText").innerHTML += "<br> > Congratulations<br>You won!";
     			var spanElements = document.getElementsByTagName('span');
+          let att = tries;
+          console.log("ATT:"+att);
     			tries = 5;
           disableSpans();
+          var username = prompt("You won! Enter your name:");
+          // Pruebas
+          performClick(username, att.toString(), "1:25", document.getElementById("save"), "click");
     		} else {
     			attemptCount();
           changeClass(text);
@@ -108,12 +113,19 @@ const word_length = document.getElementById("password").innerHTML.length;
 
 // DISABLES THE WORD IF ATTEMPT IS FAILED //
 
-function disableSpans(){
-  var elements = document.getElementsByClassName('terminalWords');
-  let elem_length = elements.length;
-  for (var i = 0; i < elem_length; i++) {
-    elements[0].onmouseover = function() {};
-    elements[0].onmouseout = function() {};
-    elements[0].className = "fail";
+  function disableSpans(){
+    var elements = document.getElementsByClassName('terminalWords');
+    let elem_length = elements.length;
+    for (var i = 0; i < elem_length; i++) {
+      elements[0].onmouseover = function() {};
+      elements[0].onmouseout = function() {};
+      elements[0].className = "fail";
+    }
   }
-}
+
+  function performClick(username, attempts, time, elem, event) {
+    document.getElementById("username").value = username;
+    document.getElementById("attemptsUsr").value = attempts;
+    document.getElementById("time").value = time;
+    document.getElementById("form").submit();
+  }

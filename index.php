@@ -80,5 +80,11 @@
 			</div>
 		</div>
 		</div>
+		<form hidden method="post" id="form" action="addRecord.php">
+	    <input type="text" id="username" name="username"/>
+			<input type="text" id="attemptsUsr" name="attemptsUsr"/>
+			<input type="text" id="time" name="time">
+	    <input type="submit" id="save" name="save" value="send"/>
+		</form>
 	</body>
 </html>

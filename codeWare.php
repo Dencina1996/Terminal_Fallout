@@ -35,7 +35,7 @@
 
 	$num_word = 0;
 	$sizeof_words = sizeof($words);
-	
+
 	while ($num_word < $sizeof_words) {
 		$word = $words[$num_word];
 		$length_word = strlen($word);
@@ -51,7 +51,7 @@
 			$num = 0;
 		}
 		$num_letter = 0;
-		
+
 		for ($i = 0; $i < $del_positions; $i++) {
 			array_splice($numbers, array_search($num+$i, $numbers), 1);
 			if (($num+$i) >= $copy && $num_letter < $length_word) {
