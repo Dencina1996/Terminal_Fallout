@@ -14,12 +14,16 @@
 				document.getElementsByTagName('html')[0].style.backgroundSize = "";
 				document.getElementsByTagName('html')[0].style.backgroundColor = "";
 				document.getElementsByTagName('body')[0].style.visibility = "visible";
+				startTimer();
 				 }, 1200);
 
 
 		</script>
 	</head>
 	<body>
+		<div id="gameTimer">
+			<label id="minLabel"></label>:<label id="secLabel"></label>
+		</div>
 		<div id="TerminalImage"></div>
 		
       	<div id="screen">

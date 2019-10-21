@@ -32,6 +32,22 @@ html {	background: url(screenGif.gif) no-repeat center fixed;
   		overflow: hidden;
 	}
 
+#gameTimer {	height: auto;
+				width: 5vw;
+				background-color: black;
+				border: 3px solid #00d057;
+				color: #00d057;
+				position: absolute;
+				z-index: 40;
+				padding: 1vw;
+				font-size: 2vw;
+				margin: 1vw;
+				text-align: center;	
+				border-radius: 100px / 50px; 
+	}
+
+#gameTimer:hover {	filter: opacity(.7);
+	}
 
 #generalContainer {	
 					position: absolute;

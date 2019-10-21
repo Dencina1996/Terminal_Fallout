@@ -2,6 +2,9 @@
 
 var tries = 0;
 var attempts = 4;
+var timer_is_on;
+var minutes = 0;
+var seconds = 0;
 const word_length = document.getElementById("password").innerHTML.length;
 
 // FUNCTIONS //
@@ -117,3 +120,48 @@ function disableSpans(){
     elements[0].className = "fail";
   }
 }
+
+// TIMER //
+
+  // TIMER FUNCTION //
+  
+    function timedCount() {
+      if (seconds >= 59) {
+        document.getElementById('minLabel').innerHTML = minutes;
+        document.getElementById('secLabel').innerHTML = seconds;
+        seconds = 0;
+        minutes++;
+        timer = setTimeout(timedCount, 1000);
+      } else {
+        document.getElementById('minLabel').innerHTML = minutes;
+        document.getElementById('secLabel').innerHTML = seconds;
+        seconds++;
+        timer = setTimeout(timedCount, 1000);
+      }
+      if (seconds < 10) {
+        document.getElementById('secLabel').innerHTML = '0'+seconds;
+      } else {
+        document.getElementById('secLabel').innerHTML = seconds;
+      }
+      if (minutes < 10) {
+        document.getElementById('minLabel').innerHTML = '0'+minutes;
+      } else {
+        document.getElementById('minLabel').innerHTML = minutes;
+      }
+    }
+
+  // START TIMER //
+
+    function startTimer() {
+      if (!timer_is_on) {
+        timer_is_on = true;
+        timedCount();
+      }
+    }
+
+  // STOP TIMER //
+
+    function stopTimer() {
+      clearTimeout(timer);
+      timer_is_on = 0;
+    }
