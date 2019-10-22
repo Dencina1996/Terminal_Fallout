@@ -42,7 +42,7 @@
 			foreach ($ArrayOfArrayRecords as $clave => $fila){
 				echo "<tr><td>".$fila['name']."</td>";
 				echo "<td>".$fila['attemps']."</td>";
-				if ($fila['timeSeconds']<9){
+				if ($fila['timeSeconds']<10){
 					$nuevosSegundos="0".$fila['timeSeconds'];
 				}else{
 					$nuevosSegundos=$fila['timeSeconds'];
