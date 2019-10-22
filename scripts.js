@@ -25,15 +25,20 @@ const word_length = document.getElementById("password").innerHTML.length;
     		document.getElementById("rightCheckColText").innerHTML += "<br>> "+wordWithoutBr;
     		var pass = document.getElementById("password").innerHTML;
     		if (wordWithoutBr === pass) {
+          document.getElementById('endImg').src = 'Win.png';
+          document.getElementById('endImg').style.visibility = 'visible';
     			document.getElementById("rightCheckColText").innerHTML += "<br> > Congratulations<br>You won!";
     			var spanElements = document.getElementsByTagName('span');
           let att = tries;
           console.log("ATT:"+att);
     			tries = 5;
           disableSpans();
-          var username = prompt("You won! Enter your name:");
+          setTimeout(function() {
+            var username = prompt("You won! Enter your name:");  
+            performClick(username, att.toString(), "1:25", document.getElementById("save"), "click");
+          },3000);
+          
           //TODO: Cambiar tiempo por el real
-          performClick(username, att.toString(), "1:25", document.getElementById("save"), "click");
     		} else {
     			attemptCount();
           changeClass(text);
@@ -66,6 +71,9 @@ const word_length = document.getElementById("password").innerHTML.length;
     		document.getElementById("rightCheckColText").innerHTML+="<br>> Terminal blocked";
     		tries++;
         disableSpans();
+        document.getElementById('endImg').src = 'Lose.png';
+        document.getElementById('endImg').style.visibility = 'visible';
+        stopTimer();
     	}
     }
 
@@ -129,7 +137,7 @@ const word_length = document.getElementById("password").innerHTML.length;
   function performClick(username, attempts, time, elem, event) {
     document.getElementById("username").value = username;
     document.getElementById("attemptsUsr").value = attempts;
-    document.getElementById("time").value = time;
+    document.getElementById("time").value = (minutes*60)+seconds; // TOTAL IN SECONDS
     document.getElementById("form").submit();
   }
 
