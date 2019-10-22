@@ -1,6 +1,5 @@
 <?php
   receiveAndWrite();
-
   function receiveAndWrite() {
 		if ($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST["username"])) {
       $file = "../txt/records.txt";

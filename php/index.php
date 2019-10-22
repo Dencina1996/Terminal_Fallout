@@ -30,7 +30,6 @@
         	<div id="layer"></div>
         	<div id="overlay"></div>
       	</div>
-
 		<div id="generalContainer" class="crt">
 			<div id="attemptCounter">
 				<p>ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL</p>
@@ -41,6 +40,7 @@
 					<div class="attemptDiv"></div>
 		</div>
 		<div id="contentDiv">
+			<img id="endImg">
 			<br>
 			<div id="leftHexCol" class="thinColumn">
 				<?php
@@ -88,7 +88,7 @@
 				<div id="rightCheckColScrollUp">
 					<div id="rightCheckColText"></div>
 					<div id="promptWrite">
-						<span id="check"></span>
+						<b>></b><span id="check"></span>
 					</div>
 				</div>
 			</div>

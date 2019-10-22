@@ -1,0 +1,4 @@
+Charlie;2;74
+David;0;3304
+Makina;0;8
+Michael;0;5
