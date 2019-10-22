@@ -3,11 +3,11 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="shortcut icon" href="../img/favicon.ico">
 		<title>Terminal Fallout 3</title>
-		<link rel="stylesheet" type="text/css" href="styles.css">
-		<link rel="stylesheet" type="text/css" href="linesBackground.css">
-		<script type="text/javascript" src="scripts.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css">
+		<link rel="stylesheet" type="text/css" href="../css/linesBackground.css">
+		<script type="text/javascript" src="../js/scripts.js"></script>
 		<script type="text/javascript">
 			setTimeout(function(){
 				document.getElementsByTagName('html')[0].style.background = "url('')";

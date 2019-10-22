@@ -24,7 +24,7 @@ body {
 				src: url(FSEX300.ttf);
 	}
 
-html {	background: url(screenGif.gif) no-repeat center fixed;
+html {	background: url(../img/screenGif.gif) no-repeat center fixed;
   		background-color: black;
   		background-size: cover;
   		font-family: 'FSEX300';
@@ -133,7 +133,7 @@ html {	background: url(screenGif.gif) no-repeat center fixed;
 
 #TerminalImage{
 	position: absolute;
-	background-image: url(StaticPage.png) ;
+	background-image: url(../img/StaticPage.png) ;
 	background-position:center;
 	background-repeat:no-repeat;
 	background-size:cover;

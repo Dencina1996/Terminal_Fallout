@@ -1,6 +1,6 @@
 <?php
 	$symbols = "!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
-	$file = file("terminalWords.txt");
+	$file = file("../txt/terminalWords.txt");
 	$words = explode(";", strtoupper($file[0]));
 
 	while (sizeof($words) > 6) {
