@@ -30,7 +30,7 @@
         	<div id="layer"></div>
         	<div id="overlay"></div>
       	</div>
-		<div id="generalContainer" class="crt">
+		<div id="generalContainer">
 			<div id="attemptCounter">
 				<p>ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL</p>
 				<span id="attempts">4</span> ATTEMPT(S) LEFT:
