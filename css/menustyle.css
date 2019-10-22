@@ -69,12 +69,14 @@ a{
 
 
 table{
-  margin-top: 20px;
+  margin: 1220px;
   background-color: white;
   color: #00d057;
   margin: auto;
+}
 
-
+th{
+  text-decoration: underline;
 }
 td {
    padding:0 15px 0 15px;
