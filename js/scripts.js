@@ -27,6 +27,7 @@ const word_length = document.getElementById("password").innerHTML.length;
     		if (wordWithoutBr === pass) {
           document.getElementById('endImg').src = '../img/Win.png';
           document.getElementById('endImg').style.visibility = 'visible';
+          stopTimer();
     			document.getElementById("rightCheckColText").innerHTML += "<br> > Congratulations<br>You won!";
     			var spanElements = document.getElementsByTagName('span');
           let att = tries;
