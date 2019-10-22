@@ -88,7 +88,7 @@
 				<div id="rightCheckColScrollUp">
 					<div id="rightCheckColText"></div>
 					<div id="promptWrite">
-						<span id="check"></span>
+						<b>></b><span id="check"></span>
 					</div>
 				</div>
 			</div>

@@ -92,7 +92,7 @@ const word_length = document.getElementById("password").innerHTML.length;
 
   function sendCheck(word) {
   	var checkWord = word.innerHTML.replace('<br>','');
-  	document.getElementById('check').innerHTML = '> '+checkWord;
+  	document.getElementById('check').innerHTML = ' '+checkWord;
   }
 
 // CLEAN WORD ON MOUSE LEAVE //
