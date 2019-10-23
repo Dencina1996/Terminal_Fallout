@@ -75,6 +75,11 @@ const word_length = document.getElementById("password").innerHTML.length;
         document.getElementById('endImg').src = '../img/Lose.png';
         document.getElementById('endImg').style.visibility = 'visible';
         stopTimer();
+        setTimeout(function() {
+           alert('Goodbye!');
+           window.location.href = '../index.html';
+            
+          },3000);
     	}
     }
 
