@@ -2,6 +2,3 @@ Charlie;2;74
 David;0;3304
 Makina;0;8
 Michael;0;5
-Alm;3;7
-Alm;3;7
-alkdlasd;2;12
