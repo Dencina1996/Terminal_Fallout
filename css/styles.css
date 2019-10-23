@@ -4,10 +4,10 @@
   margin : 0;
   padding : 0;
   outline : none;
-  border: 0;  
-  font-size: 100%;  
-  font: inherit;  
-  vertical-align: baseline; 
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
 body {
@@ -43,14 +43,14 @@ html {	background: url(../img/screenGif.gif) no-repeat center fixed;
 				padding: 1vw;
 				font-size: 2vw;
 				margin: 1vw;
-				text-align: center;	
-				border-radius: 100px / 50px; 
+				text-align: center;
+				border-radius: 100px / 50px;
 	}
 
 #gameTimer:hover {	filter: opacity(.7);
 	}
 
-#generalContainer {	
+#generalContainer {
 					position: absolute;
 					width: 45%;
 					height: 50%;
@@ -59,7 +59,7 @@ html {	background: url(../img/screenGif.gif) no-repeat center fixed;
 					left: 0;
 					right: 0;
 					top: 0;
-					bottom: 0;			
+					bottom: 0;
 					margin: auto;
 					margin-top: 15vh;
 	}
@@ -88,7 +88,7 @@ html {	background: url(../img/screenGif.gif) no-repeat center fixed;
 				margin-top: 2vh;
 	}
 
-.thinColumn{	
+.thinColumn{
 				width: 5vw;
 				margin-left: 1vw;
 				text-align: left;
@@ -133,17 +133,17 @@ html {	background: url(../img/screenGif.gif) no-repeat center fixed;
   }
 }
 
-.terminalWords:hover {	background-color: #00d057;
+.terminalWords:hover, .helps:hover {	background-color: #00d057;
 						color: black;
 						cursor: default;
 	}
 
 @media only screen and (max-width: 600px) {
-	#generalContainer {	
+	#generalContainer {
 		font-size: 1.5vw;
-		
+
 		}
-		
+
 }
 
 

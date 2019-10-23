@@ -94,9 +94,9 @@
 				$span = "";
 				$click_option = rand(0, 1);
 				if ($click_option == 0) {
-					$span = "<span onclick='deleteTrash(this)' class='terminalWords'>";
+					$span = "<span onclick='deleteTrash(this)' class='helps'>";
 				} else {
-					$span = "<span onclick='resetAttempts(this)' class='terminalWords'>";
+					$span = "<span onclick='resetAttempts(this)' class='helps'>";
 				}
 				$memory_dump[$j] = html_entity_decode($span).htmlspecialchars($rand_symbol);
 				$start_del = $j - $length_word - 1;

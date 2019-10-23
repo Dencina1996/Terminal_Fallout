@@ -31,12 +31,12 @@ const word_length = document.getElementById("password").innerHTML.length;
     			document.getElementById("rightCheckColText").innerHTML += "<br> > Congratulations<br>You won!";
     			var spanElements = document.getElementsByTagName('span');
           let att = tries;
-          console.log("ATT:"+att);
     			tries = 5;
           disableSpans();
           setTimeout(function() {
             var username = prompt("You won! Enter your name:");
-            performClick(username, att.toString(), "1:25", document.getElementById("save"), "click");
+
+            performClick(username, att.toString(), document.getElementById("save"), "click");
           },3000);
 
           //TODO: Cambiar tiempo por el real
@@ -135,7 +135,7 @@ const word_length = document.getElementById("password").innerHTML.length;
     }
   }
 
-  function performClick(username, attempts, time, elem, event) {
+  function performClick(username, attempts, elem, event) {
     document.getElementById("username").value = username;
     document.getElementById("attemptsUsr").value = attempts;
     document.getElementById("time").value = (minutes*60)+seconds; // TOTAL IN SECONDS
@@ -188,9 +188,50 @@ const word_length = document.getElementById("password").innerHTML.length;
     }
 
   function deleteTrash(help) {
-    // TODO
+    var words = document.getElementsByClassName("terminalWords");
+    var positions = [];
+    for (var i = 0; i < words.length; i++) {
+      var text = words[i].innerHTML;
+      text = text.replace("<br>", "");
+      if (text != document.getElementById("password").innerHTML) {
+        positions.push(i);
+      }
+    }
+    var wordsLength = positions.length;
+    var index = positions[Math.floor(Math.random() * (wordsLength - 1))];
+    var word = words[index].innerHTML;
+    if (word.includes("<br>")) {
+      var replacement = "";
+      var indexOfBr = word.indexOf("<br>");
+      for (var i = 0; i < word_length; i++) {
+        if (i == indexOfBr) {
+          replacement += "<br>.";
+        } else {
+          replacement += ".";
+        }
+      }
+      words[index].innerHTML = replacement;
+    } else {
+      words[index].innerHTML = ".".repeat(word_length);
+    }
+    words[index].onmouseover = function() {};
+    words[index].onmouseout = function() {};
+    words[index].onclick = null;
+    words[index].className = "fail";
+    help.innerHTML = ".".repeat(help.innerText.length);
+    help.onclick = null;
+    help.className = "fail";
   }
 
   function resetAttempts(help) {
-    // TODO
+    tries = 0;
+    attempts = 4;
+    var attempts_squares = document.getElementsByClassName("attemptDiv");
+    for (var i = 0; i < attempts_squares.length; i++) {
+      attempts_squares[i].style.visibility = "visible";
+    }
+    document.getElementById("attempts").innerHTML = "4";
+    help.innerHTML = ".".repeat(help.innerText.length);
+    help.onclick = null;
+    help.className = "fail";
   }
