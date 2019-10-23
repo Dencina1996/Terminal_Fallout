@@ -5,7 +5,7 @@
       $file = "../txt/records.txt";
       $result = file_put_contents($file, $_POST["username"].";".$_POST["attemptsUsr"].";".$_POST["time"]."\n", FILE_APPEND | LOCK_EX);
       if ($result !== false) {
-        echo "<script>alert('Record saved  successfully!');</script>";
+        echo "<script>alert('Record saved successfully!');</script>";
         echo "<script>location.href = '../index.html';</script>";
       }
 		}else{
