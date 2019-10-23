@@ -11,19 +11,51 @@
 
 	$memory_dump = array();
 	$numbers = array();
-	$columns = 17;
+	$rows = 17;
 	$characters = 12;
-	$column_length = $columns * $characters;
+	$column_length = $rows * $characters;
 	$length_word = strlen($words[0]);
-
+	$symbols2 = "!\"#$%&'(*+,-./:;<=?@[\^_`{|~";
+	$lineHasLessThan = false;
+	$lineHasOpenKey = false;
+	$lineHasOpenSqrBracket = false;
+	$lineHasOpenParenthesis = false;
 	for ($i=0; $i < $column_length * 2; $i++) {
 		$rand = rand(0, strlen($symbols)-1);
 		$char = htmlspecialchars($symbols[$rand], ENT_QUOTES);
-		if ($i > 0) {
-			if (($char == "!") && ($memory_dump[$i-1] == "<")) {
-				$rand = rand(1, strlen($symbols)-1);
-				$char = htmlspecialchars($symbols[$rand], ENT_QUOTES);
-			}
+		if ($char == htmlspecialchars("<") && !$lineHasLessThan) {
+			$lineHasLessThan = true;
+		} elseif ($char == htmlspecialchars(">") && $lineHasLessThan) {
+			$rand = rand(0, strlen($symbols2)-1);
+			$char = htmlspecialchars($symbols2[$rand], ENT_QUOTES);
+		}
+
+		if ($char == htmlspecialchars("{") && !$lineHasOpenKey) {
+			$lineHasOpenKey = true;
+		} elseif ($char == htmlspecialchars("}") && $lineHasOpenKey) {
+			$rand = rand(0, strlen($symbols2)-1);
+			$char = htmlspecialchars($symbols2[$rand], ENT_QUOTES);
+		}
+
+		if ($char == htmlspecialchars("[") && !$lineHasOpenSqrBracket) {
+			$lineHasOpenSqrBracket = true;
+		} elseif ($char == htmlspecialchars("]") && $lineHasOpenSqrBracket) {
+			$rand = rand(0, strlen($symbols2)-1);
+			$char = htmlspecialchars($symbols2[$rand], ENT_QUOTES);
+		}
+
+		if ($char == htmlspecialchars("(") && !$lineHasOpenParenthesis) {
+			$lineHasOpenParenthesis = true;
+		} elseif ($char == htmlspecialchars(")") && $lineHasOpenParenthesis) {
+			$rand = rand(0, strlen($symbols2)-1);
+			$char = htmlspecialchars($symbols2[$rand], ENT_QUOTES);
+		}
+
+		if ($i == ($characters - 1)) {
+			$lineHasLessThan = false;
+			$lineHasOpenKey = false;
+			$lineHasOpenSqrBracket = false;
+			$lineHasOpenParenthesis = false;
 		}
 		array_push($memory_dump, $char);
 		if ($i < ($column_length * 2) - $length_word) {
@@ -31,6 +63,54 @@
 				array_push($numbers, $i);
 			}
 		}
+	}
+	$pos_helps = array();
+	$string = array_slice($memory_dump, 0, $column_length * 2);
+	$length = sizeof($memory_dump);
+	$helps = rand(3, 5);
+	$arr_lines = array();
+	$num_lines = $rows * 2;
+	for ($i=0; $i < $num_lines; $i++) {
+		array_push($arr_lines, $i);
+	}
+	$open = "<{[(";
+	$close = ">}])";
+	for ($i=0; $i < $helps; $i++) {
+		$index = rand(0, sizeof($arr_lines)-1);
+		$num_line = $arr_lines[$index];
+		$start = rand(0, $characters - 2);
+		$end = rand($start+1, $characters - 1);
+		$help_length = ($end - $start) + 1;
+		if ($start == ($characters - 2)) {
+			$end = $characters - 1;
+			$help_length = ($end - $start) + 1;
+		}
+		$pos = 0;
+		$start_del = 0;
+		$rand_symbol = $open[rand(0, strlen($open)-1)];
+		$symbols2 = getSymbols($rand_symbol);
+		for ($j = $characters * $num_line; $j < ($characters * $num_line) + $characters; $j++) {
+			if ($pos == $start) {
+				$span = "";
+				$click_option = rand(0, 1);
+				if ($click_option == 0) {
+					$span = "<span onclick='deleteTrash(this)' class='terminalWords'>";
+				} else {
+					$span = "<span onclick='resetAttempts(this)' class='terminalWords'>";
+				}
+				$memory_dump[$j] = html_entity_decode($span).htmlspecialchars($rand_symbol);
+				$start_del = $j - $length_word - 1;
+			} elseif ($pos == $end) {
+				$memory_dump[$j] = htmlspecialchars($close[strpos($open, $rand_symbol)]).html_entity_decode("</span>");
+			} else {
+				$memory_dump[$j] = htmlspecialchars($symbols2[rand(0, strlen($symbols2) - 1)], ENT_QUOTES);
+			}
+			$pos += 1;
+		}
+		for ($j=$start_del; $j < $start_del + 1 + $length_word + $help_length + 2; $j++) {
+			array_splice($numbers, array_search($j, $numbers), 1);
+		}
+		array_splice($arr_lines, array_search($num_line, $arr_lines), 1);
 	}
 
 	$num_word = 0;
@@ -71,4 +151,23 @@
 	$col1 = array_slice($memory_dump, 0, $column_length);
 	$col2 = array_slice($memory_dump, $column_length, $column_length);
 	echo "<p hidden id='password'>".$words[rand(0, sizeof($words)-1)]."</p>";
+
+	function getSymbols($symbol) {
+		$symb = "!\"#$%&'(*+,-./:;<=?@[\^_`{|~";
+    switch ($symbol) {
+    	case "<":
+    		$symb = "!\"#$%&'(*+,-./:;=?@[\^_`{|~";
+    		break;
+			case "{":
+	    	$symb = "!\"#$%&'(*+,-./:;<=?@[\^_`|~";
+	    	break;
+			case "[":
+				$symb = "!\"#$%&'(*+,-./:;<=?@\^_`{|~";
+				break;
+			case "(":
+				$symb = "!\"#$%&'*+,-./:;<=?@[\^_`{|~";
+				break;
+    }
+		return $symb;
+	}
 ?>

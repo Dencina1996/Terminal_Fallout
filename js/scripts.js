@@ -35,10 +35,10 @@ const word_length = document.getElementById("password").innerHTML.length;
     			tries = 5;
           disableSpans();
           setTimeout(function() {
-            var username = prompt("You won! Enter your name:");  
+            var username = prompt("You won! Enter your name:");
             performClick(username, att.toString(), "1:25", document.getElementById("save"), "click");
           },3000);
-          
+
           //TODO: Cambiar tiempo por el real
     		} else {
     			attemptCount();
@@ -186,3 +186,11 @@ const word_length = document.getElementById("password").innerHTML.length;
       clearTimeout(timer);
       timer_is_on = 0;
     }
+
+  function deleteTrash(help) {
+    // TODO
+  }
+
+  function resetAttempts(help) {
+    // TODO
+  }
