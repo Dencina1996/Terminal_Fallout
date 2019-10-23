@@ -66,3 +66,18 @@ a{
   text-decoration: none;
   color:inherit;
   }
+
+
+table{
+  margin: 1220px;
+  background-color: white;
+  color: #00d057;
+  margin: auto;
+}
+
+th{
+  text-decoration: underline;
+}
+td {
+   padding:0 15px 0 15px;
+}
