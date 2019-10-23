@@ -78,7 +78,7 @@ const word_length = document.getElementById("password").innerHTML.length;
         setTimeout(function() {
            alert('Goodbye!');
            window.location.href = '../index.html';
-            
+
           },3000);
     	}
     }
@@ -226,6 +226,7 @@ const word_length = document.getElementById("password").innerHTML.length;
     help.innerHTML = ".".repeat(help.innerText.length);
     help.onclick = null;
     help.className = "fail";
+    document.getElementById("rightCheckColText").innerHTML+="<br>> Trash removed";
   }
 
   function resetAttempts(help) {
@@ -239,4 +240,5 @@ const word_length = document.getElementById("password").innerHTML.length;
     help.innerHTML = ".".repeat(help.innerText.length);
     help.onclick = null;
     help.className = "fail";
+    document.getElementById("rightCheckColText").innerHTML+="<br>> Attempts restored";
   }
