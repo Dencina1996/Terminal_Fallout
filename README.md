@@ -12,3 +12,7 @@
  ***
 #### Especificaciones
  * **[Especificaciones por tiempo](https://github.com/Dencina1996/Terminal_Fallout/wiki/Especificaciones)**
+
+ ***
+#### Retrospectivas
+ * **[Retrospectiva Sprint 1](https://github.com/Dencina1996/Terminal_Fallout/wiki/Retrospectiva-Sprint-1)**

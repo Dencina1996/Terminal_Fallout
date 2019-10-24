@@ -35,11 +35,8 @@ const word_length = document.getElementById("password").innerHTML.length;
           disableSpans();
           setTimeout(function() {
             var username = prompt("You won! Enter your name:");
-
             performClick(username, att.toString(), document.getElementById("save"), "click");
           },3000);
-
-          //TODO: Cambiar tiempo por el real
     		} else {
     			attemptCount();
           changeClass(text);
@@ -192,6 +189,8 @@ const word_length = document.getElementById("password").innerHTML.length;
       timer_is_on = 0;
     }
 
+// HELP: DELETE MISTAKEN WORD //
+
   function deleteTrash(help) {
     var words = document.getElementsByClassName("terminalWords");
     var positions = [];
@@ -228,6 +227,8 @@ const word_length = document.getElementById("password").innerHTML.length;
     help.className = "fail";
     document.getElementById("rightCheckColText").innerHTML+="<br>> Trash removed";
   }
+
+// HELP: RESET ATTEMPTS //
 
   function resetAttempts(help) {
     tries = 0;

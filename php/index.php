@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<link rel="shortcut icon" href="../img/favicon.ico">
+		<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
 		<title>Terminal Fallout 3</title>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css">
 		<link rel="stylesheet" type="text/css" href="../css/linesBackground.css">
@@ -16,8 +16,6 @@
 				document.getElementsByTagName('body')[0].style.visibility = "visible";
 				startTimer();
 				 }, 1200);
-
-
 		</script>
 	</head>
 	<body>

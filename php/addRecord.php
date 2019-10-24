@@ -12,6 +12,5 @@
       echo "<script>alert('Goodbye!');</script>";
       echo "<script>location.href = '../index.html';</script>";
     }
-
 	}
 ?>
