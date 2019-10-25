@@ -9,7 +9,7 @@
 	<body>
 		<div>
 		<?php
-			$file = file("../txt/recordsEasy.txt");
+			$file = file("../txt/records.txt");
 			$ArrayOfArrayRecords=[];
 			for ($i=0; $i < sizeof($file) ; $i++) { 
 				$SingleOne=explode(";", $file[$i]);
