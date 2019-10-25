@@ -1,7 +1,7 @@
 <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
 <?php
 	$symbols = "!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
-	$file = file("../txt/terminalWordsEasy.txt");
+	$file = file("../txt/terminalWords.txt");
 	$words = explode(";", strtoupper($file[0]));
 
 	while (sizeof($words) > 6) {
