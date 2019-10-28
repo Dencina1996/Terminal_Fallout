@@ -5,10 +5,12 @@
 		<link rel="shortcut icon" href="img/favicon.ico">
 		<title>Terminal Fallout 3 - Menu</title>
 		<link rel="stylesheet" type="text/css" href="css/menustyle.css">
+		<link rel="stylesheet" type="text/css" href="css/min.css">
 		<script type="text/javascript" src="/js/scripts.js"></script>
 	</head>
 	<body>
-		<audio id="myAudio">
+		<img id="audioImg" src="img/speaker.png" onclick="muteAudio()" class="enabled">
+		<audio class="audioSamples">
 		  <source src="sound.mp3" type="audio/mp3">
 		</audio>
 		<?php

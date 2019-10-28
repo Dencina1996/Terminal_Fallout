@@ -255,11 +255,27 @@ var seconds = 0;
 // AUDIO //
 
   function playAudio(audio) { 
-    var audio = document.getElementById("myAudio");
+    var audio = document.getElementsByClassName("audioSamples")[0];
     audio.play(); 
   } 
 
-  function pauseAudio(audio) { 
-    var audio = document.getElementById("myAudio");
-    audio.pause(); 
+  function muteAudio() { 
+    var soundImg = document.getElementById('audioImg');
+    var audio = document.getElementsByClassName("audioSamples");
+    if (soundImg.className == 'enabled') {
+      soundImg.src = 'img/mute.png';
+      soundImg.className = 'disabled';
+      for (var i = 0; i == audio.length; i++) {
+        audio[i].muted = true;
+      }
+    } 
+    else if (soundImg.className == 'disabled') {
+      soundImg.src = 'img/speaker.png';
+      soundImg.className = 'enabled';
+      for (var i = 0; i == audio.length; i++) {
+        audio[i].muted = false;
+      }
+    }
   } 
+    
+    
