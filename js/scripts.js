@@ -243,3 +243,19 @@ const word_length = document.getElementById("password").innerHTML.length;
     help.className = "fail";
     document.getElementById("rightCheckColText").innerHTML+="<br>> Attempts restored";
   }
+
+
+
+  function showHideSomething(div) {
+    
+      var x = document.getElementById(div);
+      if (x.style.display === "none") {
+        var one=document.getElementsByClassName('menuH')[0];
+      one.style.display="none";
+      var two=document.getElementsByClassName('menuH')[1];
+      two.style.display="none";
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+  }
