@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php include 'codeWare.php';?>
+<?php include 'codeWare.php'; ?>
 <html>
 	<head>
 		<meta charset="utf-8">

@@ -5,8 +5,19 @@
 		<link rel="shortcut icon" href="img/favicon.ico">
 		<title>Terminal Fallout 3 - Menu</title>
 		<link rel="stylesheet" type="text/css" href="css/menustyle.css">
+		<script type="text/javascript" src="js/scripts.js"></script>
 	</head>
 	<body>
+
+		<?php
+			session_start();
+			if ( isset($_GET['difficulty']) ) { 
+				$_SESSION['difficulty'] = $_GET['difficulty'];
+				echo '<script type="text/javascript">','window.location.href ="php/index.php";','</script>';			
+			}else {
+			$_SESSION['difficulty']=0;
+			}
+?>
 	<div id="menu">
 		<div id="menuInit">
 				
@@ -17,9 +28,9 @@
 		<div id="MenuHidden">
 			<div id="GameMode" class="menuH ">
 				<ul>
-	   				<li><a href="php\index.php">EASY</a></li>
-					<li><a href="php\index.php">NORMAL</a></li>
-					<li><a href="php\index.php">HARD</a></li>
+	   				<li><a href="index.php?difficulty=1" onclick="changeTab('php/index.php')">EASY</a></li>
+					<li><a href="index.php?difficulty=2" onclick="changeTab('php/index.php')">NORMAL</a></li>
+					<li><a href="index.php?difficulty=3" onclick="changeTab('php/index.php')">HARD</a></li>
 				</ul>
 			</div>
 
@@ -36,19 +47,15 @@
 
 
 		<script>
-	function showHideSomething(div) {
-		
-  		var x = document.getElementById(div);
-  		if (x.style.display === "none") {
-  			var one=document.getElementsByClassName('menuH')[0];
-			one.style.display="none";
-			var two=document.getElementsByClassName('menuH')[1];
-			two.style.display="none";
-   			x.style.display = "block";
-  		} else {
-    		x.style.display = "none";
-  		}
-	}
+	
+
+
+    $(document).ready(function(){
+var difficulty = "<?php echo $_SESSION['difficulty']; ?>";
+
+alert (player);
+    });
+</script>
 </script>
 	</body>
 </html>

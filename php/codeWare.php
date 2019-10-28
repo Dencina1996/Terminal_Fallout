@@ -1,10 +1,25 @@
 <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
 <?php
+	session_start();
 	$symbols = "!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
-	$file = file("../txt/terminalWordsEasy.txt");
+
+	if ($_SESSION['difficulty']==1) {
+		$file = file("../txt/terminalWordsEasy.txt");
+		$helps = 3;
+		$countOfWords=6;
+	}else if ($_SESSION['difficulty']==2) {
+		$file = file("../txt/terminalWordsNormal.txt");
+		$helps = 2;
+		$countOfWords=10;
+	}else if ($_SESSION['difficulty']==3) {
+		$file = file("../txt/terminalWordsHard.txt");
+		$countOfWords=12;
+		$helps = 1;
+	}
+	
 	$words = explode(";", strtoupper($file[0]));
 
-	while (sizeof($words) > 6) {
+	while (sizeof($words) > $countOfWords) {
 		$index = rand(0, sizeof($words)-1);
 		unset($words[$index]);
 		$words = array_values($words);
@@ -68,7 +83,7 @@
 	$pos_helps = array();
 	$string = array_slice($memory_dump, 0, $column_length * 2);
 	$length = sizeof($memory_dump);
-	$helps = rand(3, 5);
+	//$helps = rand(3, 5);
 	$arr_lines = array();
 	$num_lines = $rows * 2;
 	for ($i=0; $i < $num_lines; $i++) {
@@ -93,6 +108,8 @@
 		for ($j = $characters * $num_line; $j < ($characters * $num_line) + $characters; $j++) {
 			if ($pos == $start) {
 				$span = "";
+
+
 				$click_option = rand(0, 1);
 				if ($click_option == 0) {
 					$span = "<span onclick='deleteTrash(this)' class='helps'>";
