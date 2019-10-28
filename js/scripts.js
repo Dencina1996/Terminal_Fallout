@@ -5,7 +5,7 @@ var attempts = 4;
 var timer_is_on;
 var minutes = 0;
 var seconds = 0;
-const word_length = document.getElementById("password").innerHTML.length;
+//const word_length = document.getElementById("password").innerHTML.length;
 
 // FUNCTIONS //
 
@@ -246,16 +246,20 @@ const word_length = document.getElementById("password").innerHTML.length;
 
 
 
-  function showHideSomething(div) {
-    
-      var x = document.getElementById(div);
-      if (x.style.display === "none") {
-        var one=document.getElementsByClassName('menuH')[0];
-      one.style.display="none";
-      var two=document.getElementsByClassName('menuH')[1];
-      two.style.display="none";
-        x.style.display = "block";
-      } else {
-        x.style.display = "none";
-      }
+  function showHideSomething(id) {
+      document.getElementById("GameMode").style.display = 'none';
+      document.getElementById("Ranking").style.display = 'none';
+      document.getElementById(id).style.display = 'block';
   }
+
+// AUDIO //
+
+  function playAudio(audio) { 
+    var audio = document.getElementById("myAudio");
+    audio.play(); 
+  } 
+
+  function pauseAudio(audio) { 
+    var audio = document.getElementById("myAudio");
+    audio.pause(); 
+  } 
