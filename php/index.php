@@ -31,7 +31,8 @@
 		<div id="generalContainer">
 			<div id="attemptCounter">
 				<p>ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL</p>
-				<span id="attempts">4</span> ATTEMPT(S) LEFT:
+				<p>ENTER PASSWORD NOW</p>
+				<span id="spanAttempts"><span id="attempts">4</span> ATTEMPT(S) LEFT:</span>
 					<div class="attemptDiv"></div>
 					<div class="attemptDiv"></div>
 					<div class="attemptDiv"></div>
