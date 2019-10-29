@@ -80,17 +80,6 @@ var seconds = 0;
     	}
     }
 
-// SCORE ATTEMPTS //
-
-  function attemptCount() {
-  	document.getElementsByClassName('attemptDiv')[attempts-1].style.visibility = 'hidden';
-  	attempts--;
-  	if (attempts < 1) {
-  		alert('Has perdido!');
-  		window.location.replace('');
-  	}
-  }
-
 // INSERT WORD INTO COLUMN WHEN HOVERS //
 
   function sendCheck(word) {
@@ -244,8 +233,6 @@ var seconds = 0;
     document.getElementById("rightCheckColText").innerHTML+="<br>> Attempts restored";
   }
 
-
-
   function showHideSomething(id) {
       document.getElementById("GameMode").style.display = 'none';
       document.getElementById("Ranking").style.display = 'none';
@@ -254,12 +241,12 @@ var seconds = 0;
 
 // AUDIO //
 
-  function playAudio(audio) { 
+  function playAudio(audio) {
     var audio = document.getElementsByClassName("audioSamples")[0];
-    audio.play(); 
-  } 
+    audio.play();
+  }
 
-  function muteAudio() { 
+  function muteAudio() {
     var soundImg = document.getElementById('audioImg');
     var audio = document.getElementsByClassName("audioSamples");
     if (soundImg.className == 'enabled') {
@@ -268,7 +255,7 @@ var seconds = 0;
       for (var i = 0; i == audio.length; i++) {
         audio[i].muted = true;
       }
-    } 
+    }
     else if (soundImg.className == 'disabled') {
       soundImg.src = 'img/speaker.png';
       soundImg.className = 'enabled';
@@ -276,6 +263,7 @@ var seconds = 0;
         audio[i].muted = false;
       }
     }
+
   } 
     
 function checkHardcore(mode){  
@@ -284,5 +272,4 @@ function checkHardcore(mode){
   }else if(document.getElementById("Hardcore").checked === false) {   
     mode.href+="&extreme=false"; 
   }
- 
 }
