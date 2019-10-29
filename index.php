@@ -6,22 +6,26 @@
 		<title>Terminal Fallout 3 - Menu</title>
 		<link rel="stylesheet" type="text/css" href="css/menustyle.css">
 		<link rel="stylesheet" type="text/css" href="css/min.css">
-		<script type="text/javascript" src="/js/scripts.js"></script>
+		<script type="text/javascript" src="js/scripts.js"></script>
 	</head>
 	<body>
 		<img id="audioImg" src="img/speaker.png" onclick="muteAudio()" class="enabled">
 		<audio class="audioSamples">
-		  <source src="sound.mp3" type="audio/mp3">
+		 <source src="sound.mp3" type="audio/mp3">
 		</audio>
 		<?php
 			session_start();
 			if ( isset($_GET['difficulty']) ) { 
-				$_SESSION['difficulty'] = $_GET['difficulty'];
+				$_SESSION['difficulty'] = $_GET['difficulty'];				
+				if(isset($_GET['extreme'])){
+				$_SESSION['extreme']=$_GET['extreme'];				
+			}
 				echo '<script type="text/javascript">','window.location.href ="php/index.php";','</script>';			
 			}else {
 			$_SESSION['difficulty']=0;
 			}
 		?>
+		
 	<div id="menu">
 		<div id="menuInit">
 			<div class="menuclick" onclick="showHideSomething('GameMode'); playAudio()">PLAY</div>		
@@ -30,9 +34,10 @@
 		<div id="MenuHidden">
 			<div id="GameMode" style="display: none">
 				<ul>
-	   				<li><a href="index.php?difficulty=1" onclick="changeTab('php/index.php')">EASY</a></li>
-					<li><a href="index.php?difficulty=2" onclick="changeTab('php/index.php')">NORMAL</a></li>
-					<li><a href="index.php?difficulty=3" onclick="changeTab('php/index.php')">HARD</a></li>
+					<li>Extreme?<form method='post'><input type="checkbox"  id="Hardcore"></form></li>
+	   				<li><a href="index.php?difficulty=1" onclick="checkHardcore(this)">EASY</a></li>
+					<li><a href="index.php?difficulty=2" onclick="checkHardcore(this)">NORMAL</a></li>
+					<li><a href="index.php?difficulty=3" onclick="checkHardcore(this)">HARD</a></li>
 				</ul>
 			</div>
 			<div id="Ranking" style="display: none;">
@@ -45,4 +50,9 @@
 		</div>
 	</div>
 	</body>
+	
+<script type="text/javascript">
+var difficulty = "<?php echo $_SESSION['difficulty'] ?>";
+
+</script>
 </html>

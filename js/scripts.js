@@ -74,7 +74,7 @@ var seconds = 0;
         stopTimer();
         setTimeout(function() {
            alert('Goodbye!');
-           window.location.href = '../index.html';
+           window.location.href = '../index.php';
 
           },3000);
     	}
@@ -278,4 +278,11 @@ var seconds = 0;
     }
   } 
     
-    
+function checkHardcore(mode){  
+  if(document.getElementById("Hardcore").checked === true){
+   mode.href+="&extreme=true"; 
+  }else if(document.getElementById("Hardcore").checked === false) {   
+    mode.href+="&extreme=false"; 
+  }
+ 
+}
