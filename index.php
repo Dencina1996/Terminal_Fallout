@@ -34,10 +34,10 @@
 		<div id="MenuHidden">
 			<div id="GameMode" style="display: none">
 				<ul>
-					<li>Extreme?<form method='post'><input type="checkbox"  id="Hardcore"></form></li>
-	   				<li><a href="index.php?difficulty=1" onclick="checkHardcore(this)">EASY</a></li>
-					<li><a href="index.php?difficulty=2" onclick="checkHardcore(this)">NORMAL</a></li>
-					<li><a href="index.php?difficulty=3" onclick="checkHardcore(this)">HARD</a></li>
+					<li>Extreme?<form method='post'><input type="checkbox"  id="extreme"></form></li>
+	   				<li><a href="index.php?difficulty=1" onclick="checkExtreme(this)">EASY</a></li>
+					<li><a href="index.php?difficulty=2" onclick="checkExtreme(this)">NORMAL</a></li>
+					<li><a href="index.php?difficulty=3" onclick="checkExtreme(this)">HARD</a></li>
 				</ul>
 			</div>
 			<div id="Ranking" style="display: none;">
@@ -53,6 +53,6 @@
 	
 <script type="text/javascript">
 var difficulty = "<?php echo $_SESSION['difficulty'] ?>";
-
+var extreme= "<?php echo $_SESSION['extreme'] ?>";
 </script>
 </html>

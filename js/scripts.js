@@ -266,10 +266,10 @@ var seconds = 0;
 
   } 
     
-function checkHardcore(mode){  
-  if(document.getElementById("Hardcore").checked === true){
+function checkExtreme(mode){  
+  if(document.getElementById("extreme").checked === true){
    mode.href+="&extreme=true"; 
-  }else if(document.getElementById("Hardcore").checked === false) {   
+  }else if(document.getElementById("extreme").checked === false) {   
     mode.href+="&extreme=false"; 
   }
 }
