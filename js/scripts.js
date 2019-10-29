@@ -5,7 +5,7 @@ var attempts = 4;
 var timer_is_on;
 var minutes = 0;
 var seconds = 0;
-const word_length = document.getElementById("password").innerHTML.length;
+//const word_length = document.getElementById("password").innerHTML.length;
 
 // FUNCTIONS //
 
@@ -233,18 +233,34 @@ const word_length = document.getElementById("password").innerHTML.length;
     document.getElementById("rightCheckColText").innerHTML+="<br>> Attempts restored";
   }
 
+  function showHideSomething(id) {
+      document.getElementById("GameMode").style.display = 'none';
+      document.getElementById("Ranking").style.display = 'none';
+      document.getElementById(id).style.display = 'block';
+  }
 
+// AUDIO //
 
-  function showHideSomething(div) {
+  function playAudio(audio) {
+    var audio = document.getElementsByClassName("audioSamples")[0];
+    audio.play();
+  }
 
-      var x = document.getElementById(div);
-      if (x.style.display === "none") {
-        var one=document.getElementsByClassName('menuH')[0];
-      one.style.display="none";
-      var two=document.getElementsByClassName('menuH')[1];
-      two.style.display="none";
-        x.style.display = "block";
-      } else {
-        x.style.display = "none";
+  function muteAudio() {
+    var soundImg = document.getElementById('audioImg');
+    var audio = document.getElementsByClassName("audioSamples");
+    if (soundImg.className == 'enabled') {
+      soundImg.src = 'img/mute.png';
+      soundImg.className = 'disabled';
+      for (var i = 0; i == audio.length; i++) {
+        audio[i].muted = true;
       }
+    }
+    else if (soundImg.className == 'disabled') {
+      soundImg.src = 'img/speaker.png';
+      soundImg.className = 'enabled';
+      for (var i = 0; i == audio.length; i++) {
+        audio[i].muted = false;
+      }
+    }
   }
