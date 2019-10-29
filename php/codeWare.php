@@ -2,21 +2,62 @@
 <?php
 	session_start();
 	$symbols = "!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
-
+	$helps = 0;
 	if ($_SESSION['difficulty']==1) {
 		$file = file("../txt/terminalWordsEasy.txt");
-		$helps = 3;
+		$helps = 3;//$helps = rand(3, 5);
+		$helps_easy = array();
+		$easy_index = 0;
 		$countOfWords=6;
-	}else if ($_SESSION['difficulty']==2) {
+		$numOfHelp1 = 0;
+		$numOfHelp2 = 0;
+		$close = false;
+		echo "<script>console.log('% -> ".($helps%2)."');</script>";
+		for ($i=0; $i < $helps; $i++) {
+			if ($numOfHelp1 < $numOfHelp2) {
+				$span = "<span onclick='deleteTrash(this)' class='helps'>";
+				array_push($helps_easy, $span);
+				$numOfHelp1++;
+			} else if ($numOfHelp2 < $numOfHelp1) {
+				$span = "<span onclick='resetAttempts(this)' class='helps'>";
+				array_push($helps_easy, $span);
+				$numOfHelp2++;
+			} else {
+				$click_option = rand(0, 1);
+				if ($click_option == 0) {
+					$span = "<span onclick='deleteTrash(this)' class='helps'>";
+					array_push($helps_easy, $span);
+					$numOfHelp1++;
+				} else {
+					$span = "<span onclick='resetAttempts(this)' class='helps'>";
+					array_push($helps_easy, $span);
+					$numOfHelp2++;
+				}
+			}
+		}
+	} elseif ($_SESSION['difficulty']==2) {
 		$file = file("../txt/terminalWordsNormal.txt");
 		$helps = 2;
 		$countOfWords=10;
-	}else if ($_SESSION['difficulty']==3) {
+		$helps_medium = array();
+		$medium_index = 0;
+		$click_option = rand(0, 1);
+		if ($click_option == 0) {
+			$span = "<span onclick='deleteTrash(this)' class='helps'>";
+			array_push($helps_medium, $span);
+			array_push($helps_medium, "<span onclick='resetAttempts(this)' class='helps'>");
+		} else {
+			$span = "<span onclick='resetAttempts(this)' class='helps'>";
+			array_push($helps_medium, $span);
+			array_push($helps_medium, "<span onclick='deleteTrash(this)' class='helps'>");
+		}
+
+	} elseif ($_SESSION['difficulty']==3) {
 		$file = file("../txt/terminalWordsHard.txt");
 		$countOfWords=12;
 		$helps = 1;
 	}
-	
+
 	$words = explode(";", strtoupper($file[0]));
 
 	while (sizeof($words) > $countOfWords) {
@@ -83,7 +124,6 @@
 	$pos_helps = array();
 	$string = array_slice($memory_dump, 0, $column_length * 2);
 	$length = sizeof($memory_dump);
-	//$helps = rand(3, 5);
 	$arr_lines = array();
 	$num_lines = $rows * 2;
 	for ($i=0; $i < $num_lines; $i++) {
@@ -91,6 +131,7 @@
 	}
 	$open = "<{[(";
 	$close = ">}])";
+
 	for ($i=0; $i < $helps; $i++) {
 		$index = rand(0, sizeof($arr_lines)-1);
 		$num_line = $arr_lines[$index];
@@ -108,13 +149,21 @@
 		for ($j = $characters * $num_line; $j < ($characters * $num_line) + $characters; $j++) {
 			if ($pos == $start) {
 				$span = "";
-
-
-				$click_option = rand(0, 1);
-				if ($click_option == 0) {
-					$span = "<span onclick='deleteTrash(this)' class='helps'>";
-				} else {
-					$span = "<span onclick='resetAttempts(this)' class='helps'>";
+				if ($helps >= 3) {
+					$span = $helps_easy[$easy_index];
+					$easy_index++;
+				}
+				else if ($helps == 2) {
+					$span = $helps_medium[$medium_index];
+					$medium_index++;
+				}
+				else if ($helps == 1) {
+					$click_option = rand(0, 1);
+					if ($click_option == 0) {
+						$span = "<span onclick='deleteTrash(this)' class='helps'>";
+					} else {
+						$span = "<span onclick='resetAttempts(this)' class='helps'>";
+					}
 				}
 				$memory_dump[$j] = html_entity_decode($span).htmlspecialchars($rand_symbol);
 				$start_del = $j - $length_word - 1;

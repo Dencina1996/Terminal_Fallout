@@ -69,13 +69,17 @@ html {	background: url(../img/screenGif.gif) no-repeat center fixed;
 					font-size: 2vw;
 	}
 
-#attemptCounter > .attemptDiv {	height: 2vw;
-								width: 2vw;
-								background-color: #00d057;
-								display: inline-block;
-								font-size: 2.5vw;
-								vertical-align: bottom;
+.attemptDiv {	height: 2vw;
+							width: 2vw;
+							background-color: #00d057;
+							display: inline-block;
+							font-size: 2.5vw;
+							vertical-align: bottom;
 	}
+
+  #containerAttemptDiv {
+    display: inline-block;
+  }
 
 #contentDiv {	position: relative;
 				border-radius: 100px / 50px;
@@ -203,7 +207,7 @@ html {	background: url(../img/screenGif.gif) no-repeat center fixed;
   margin-left: 1vw;
 }
 
-#spanAttempts, .attemptDiv, #contentDiv {
+#spanAttempts, #containerAttemptDiv, #contentDiv {
   visibility: hidden;
   animation: typewriter3 0s ease-in 6s forwards;
   animation-fill-mode: forwards;

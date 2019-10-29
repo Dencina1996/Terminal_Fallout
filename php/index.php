@@ -33,10 +33,12 @@
 				<p>ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL</p>
 				<p>ENTER PASSWORD NOW</p>
 				<span id="spanAttempts"><span id="attempts">4</span> ATTEMPT(S) LEFT:</span>
+				<div id="containerAttemptDiv">
 					<div class="attemptDiv"></div>
 					<div class="attemptDiv"></div>
 					<div class="attemptDiv"></div>
 					<div class="attemptDiv"></div>
+				</div>
 		</div>
 		<div id="contentDiv">
 			<img id="endImg">

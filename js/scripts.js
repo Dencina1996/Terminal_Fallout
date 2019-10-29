@@ -80,17 +80,6 @@ const word_length = document.getElementById("password").innerHTML.length;
     	}
     }
 
-// SCORE ATTEMPTS //
-
-  function attemptCount() {
-  	document.getElementsByClassName('attemptDiv')[attempts-1].style.visibility = 'hidden';
-  	attempts--;
-  	if (attempts < 1) {
-  		alert('Has perdido!');
-  		window.location.replace('');
-  	}
-  }
-
 // INSERT WORD INTO COLUMN WHEN HOVERS //
 
   function sendCheck(word) {
@@ -247,7 +236,7 @@ const word_length = document.getElementById("password").innerHTML.length;
 
 
   function showHideSomething(div) {
-    
+
       var x = document.getElementById(div);
       if (x.style.display === "none") {
         var one=document.getElementsByClassName('menuH')[0];
