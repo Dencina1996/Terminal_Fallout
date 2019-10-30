@@ -9,7 +9,7 @@
 		<script type="text/javascript" src="js/scripts.js"></script>
 	</head>
 	<body>
-		<img id="audioImg" src="img/speaker.png" onclick="muteAudio()" class="enabled">
+		<img id="audioImg" src="img/speaker.png" onclick="audioControl()" class="enabled">
 		<audio class="audioSamples">
 		 <source src="sound.mp3" type="audio/mp3">
 		</audio>
