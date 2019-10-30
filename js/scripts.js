@@ -5,6 +5,7 @@ var attempts = 4;
 var timer_is_on;
 var minutes = 0;
 var seconds = 0;
+var egg=0;
 //const word_length = document.getElementById("password").innerHTML.length;
 
 // FUNCTIONS //
@@ -267,4 +268,16 @@ function checkExtreme(mode){
   }else if(document.getElementById("extreme").checked === false) {   
     mode.href+="&extreme=false"; 
   }
+}
+
+function activateEgg(){
+  egg++;
+  if (egg==3){
+  document.getElementById('screen').style.visibility = 'hidden';
+  document.getElementById('epi').style.visibility = 'visible';
+ }else if(egg>3){
+  egg=0;
+  document.getElementById('screen').style.visibility = 'visible';
+  document.getElementById('epi').style.visibility = 'hidden';
+ }
 }
