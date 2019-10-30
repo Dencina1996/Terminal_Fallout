@@ -246,24 +246,19 @@ var seconds = 0;
     audio.play();
   }
 
-  function muteAudio() {
+  function audioControl() {
     var soundImg = document.getElementById('audioImg');
-    var audio = document.getElementsByClassName("audioSamples");
+    var audio = document.getElementsByTagName("audio")[0];
     if (soundImg.className == 'enabled') {
       soundImg.src = 'img/mute.png';
       soundImg.className = 'disabled';
-      for (var i = 0; i == audio.length; i++) {
-        audio[i].muted = true;
-      }
+      audio.volume = 0.0;
     }
     else if (soundImg.className == 'disabled') {
       soundImg.src = 'img/speaker.png';
       soundImg.className = 'enabled';
-      for (var i = 0; i == audio.length; i++) {
-        audio[i].muted = false;
-      }
+      audio.volume = 1.0;
     }
-
   } 
     
 function checkExtreme(mode){  
