@@ -30,7 +30,7 @@ body {
       background-size: cover;
       font-family: 'FSEX300';
       font-size: 25px;
-
+      text-shadow: 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black;
   }
 
 #menu{       
