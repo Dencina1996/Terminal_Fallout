@@ -11,10 +11,10 @@
 	<body>
 		<img id="audioImg" src="img/speaker.png" onclick="audioControl()" class="enabled">
 		<audio autoplay loop>
-			<source src="bg_music.mp3"  type="audio/ogg">
+			<source src="/sound/bg_music.mp3"  type="audio/ogg">
 		</audio>
 		<audio>
-			<source src="sound.mp3" type="audio/mp3">
+			<source src="/sound/sound.mp3" type="audio/mp3">
 		</audio>
 		<?php
 			session_start();
@@ -56,9 +56,15 @@
 			</div>
 			<div id="Ranking" style="display: none;">
 				<ul>
-	   				<li><a href="php\rankingEasy.php">RANKING EASY</a></li>
-					<li><a href="php\rankingNormal.php">RANKING NORMAL</a></li>
-					<li style="border-bottom: 2px solid black;"><a href="php\rankingHard.php">RANKING HARD</a></li>
+	   				<li>
+	   					<a href="php\rankingEasy.php">RANKING EASY</a>
+	   				</li>
+					<li>
+						<a href="php\rankingNormal.php">RANKING NORMAL</a>
+					</li>
+					<li style="border-bottom: 2px solid black;">
+						<a href="php\rankingHard.php">RANKING HARD</a>
+					</li>
 				</ul>
 			</div>
 		</div>
