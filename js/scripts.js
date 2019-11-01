@@ -242,23 +242,26 @@ var egg=0;
 
 // AUDIO //
 
-  function playAudio(audio) {
-    var audio = document.getElementsByClassName("audioSamples")[0];
+  function playAudio() {
+    var audio = document.getElementsByTagName("audio")[1];
     audio.play();
   }
 
   function audioControl() {
     var soundImg = document.getElementById('audioImg');
-    var audio = document.getElementsByTagName("audio")[0];
+    var bgAudio = document.getElementsByTagName("audio")[0];
+    var buttonAudio = document.getElementsByTagName("audio")[1];
     if (soundImg.className == 'enabled') {
       soundImg.src = 'img/mute.png';
       soundImg.className = 'disabled';
-      audio.volume = 0.0;
+      bgAudio.volume = 0.0;
+      buttonAudio.volume = 0.0;
     }
     else if (soundImg.className == 'disabled') {
       soundImg.src = 'img/speaker.png';
       soundImg.className = 'enabled';
-      audio.volume = 1.0;
+      bgAudio.volume = 1.0;
+      buttonAudio.volume = 1.0;
     }
   } 
     
