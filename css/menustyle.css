@@ -5,6 +5,7 @@
     font-size: 100%;  
     font: inherit;  
     vertical-align: baseline; 
+    cursor: url("/img/cursor.png"), auto;
   }
 
 body {  -webkit-touch-callout: none;
@@ -73,7 +74,7 @@ a { text-decoration: none;
   }
 
 
-table {  text-align: center;        
+table { text-align: center;        
         display: flex;
         text-align: left;
         width: auto;
@@ -87,7 +88,6 @@ table {  text-align: center;
   }
 
 th {  text-align: center;
-      text-decoration: underline;
   }
 
 td {  text-align: center;
@@ -134,4 +134,50 @@ input[type=checkbox]:disabled + label:before {  transform: scale(1);
 input[type=checkbox]:checked:disabled + label:before {  transform: scale(1);
                                                         background-color: #bfb;
                                                         border-color: #bfb;
+  }
+
+.rankDiv table {  text-align: center;        
+                      display: table;
+                      text-align: left;
+                      width: auto;
+                      color: #00d057;
+                      background-color: rgba(255, 255, 255, 0.3);
+                      padding: 10vh 4vh 10vh  4vh;
+                      position: absolute;
+                      top: 50%;
+                      left: 50%;
+                      padding: 20px;
+                      transform: translate(-50%, -50%);
+                      border: solid 2px black;
+
+}
+
+.rankDiv tr:nth-child(1) {  background-color: rgba(0, 0, 0, 0.7);
+  }
+
+.rankDiv th { padding: 10px;
+  }
+
+
+
+.myButton { display: flex;
+            position: fixed;
+            bottom: 25%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow:inset 0px 0px 0px 0px #caefab;
+            background-image: url("/img/back.gif");
+            background-size: cover;
+            border-radius: 15px;
+            border: 2px solid white;
+            display: inline-block;
+            cursor: pointer;
+            color: #00d057;
+            font-size: 24px;
+            padding: 15px 40px;
+            text-decoration:none;
+            text-shadow:0px 1px 0px #aade7c;
+  }
+
+.myButton:hover { opacity: 0.8;
   }

@@ -7,7 +7,7 @@
 		<link rel="stylesheet" type="text/css" href="../css/menustyle.css">	
 	</head>
 	<body>
-		<div>
+		<div id="rankingEasy">
 		<?php
 			$file = file("../txt/recordsEasy.txt");
 			$ArrayOfArrayRecords=[];
@@ -38,5 +38,6 @@
 				echo "<td>".$fila['timeMinuts'].":".$nuevosSegundos."</td></tr>";
 			}
 		?>
+		</div>
 	</body>
 </html>

@@ -29,7 +29,7 @@
 			}
 		?>
 		
-	<div id="menu">
+	<div id="menu" style="visibility: visible;">
 		<div id="menuInit">
 			<div class="menuclick" onclick="showHideSomething('GameMode'); playAudio()" style="border-bottom: 0;">PLAY</div>		
 			<div class="menuclick" onclick="showHideSomething('Ranking'); playAudio()">RANKING</div>
@@ -57,18 +57,128 @@
 			<div id="Ranking" style="display: none;">
 				<ul>
 	   				<li>
-	   					<a href="php\rankingEasy.php">RANKING EASY</a>
+	   					<label onclick="revealRanks('rankingEasy'); playAudio()">RANKING EASY</label>
 	   				</li>
 					<li>
-						<a href="php\rankingNormal.php">RANKING NORMAL</a>
+						<label onclick="revealRanks('rankingNormal'); playAudio()">RANKING NORMAL</label>
 					</li>
 					<li style="border-bottom: 2px solid black;">
-						<a href="php\rankingHard.php">RANKING HARD</a>
+						<label onclick="revealRanks('rankingHard'); playAudio()">RANKING HARD</label>
 					</li>
 				</ul>
 			</div>
 		</div>
 	</div>
+	<!-- RANKING EASY -->
+	<div id="rankingEasy" class="rankDiv" style="visibility: hidden;">
+	<?php
+		$file = file("txt/recordsEasy.txt");
+		$ArrayOfArrayRecords=[];
+		for ($i=0; $i < sizeof($file) ; $i++) { 
+			$SingleOne=explode(";", $file[$i]);
+			$minutos=intval(intval($SingleOne[2])/60);
+			$minutosSinSegundos=$minutos*60;
+			$segundos=intval($SingleOne[2])-$minutosSinSegundos;
+			
+			$SingleOne= array('name' => $SingleOne[0],"attempts"=>$SingleOne[1], 'timeMinuts'=>$minutos,'timeSeconds'=>$segundos);
+			$ArrayOfArrayRecords[]=$SingleOne;				
+		}	
+		foreach ($ArrayOfArrayRecords as $clave => $fila) {
+			$attempts[$clave] = $fila['attempts'];
+			$timeMinuts[$clave] = $fila['timeMinuts'];
+			$timeSeconds[$clave] = $fila['timeSeconds'];
+		}
+		array_multisort($attempts, SORT_ASC, $timeMinuts, SORT_ASC,$timeSeconds, SORT_ASC, $ArrayOfArrayRecords);
+		echo "<table><tr><th>Name</th><th>Attempts</th><th>Time</th></tr>";
+		foreach ($ArrayOfArrayRecords as $clave => $fila){
+			echo "<tr><td>".$fila['name']."</td>";
+			echo "<td>".$fila['attempts']."</td>";
+			if ($fila['timeSeconds']<10){
+				$nuevosSegundos="0".$fila['timeSeconds'];
+			}else{
+				$nuevosSegundos=$fila['timeSeconds'];
+			}
+			echo "<td>".$fila['timeMinuts'].":".$nuevosSegundos."</td></tr>";
+		}
+		echo "</table>";
+	?>
+	<button class="myButton" onclick="hideRanks('rankingEasy'); playAudio()">GO BACK</button>
+	</div>
+	<!-- END -->
+	<!-- RANKING NORMAL -->
+	<div id="rankingNormal" class="rankDiv" style="visibility: hidden;">
+	<?php
+		$file = file("txt/recordsNormal.txt");
+		$ArrayOfArrayRecords=[];
+		for ($i=0; $i < sizeof($file) ; $i++) { 
+			$SingleOne=explode(";", $file[$i]);
+			$minutos=intval(intval($SingleOne[2])/60);
+			$minutosSinSegundos=$minutos*60;
+			$segundos=intval($SingleOne[2])-$minutosSinSegundos;
+			
+			$SingleOne= array('name' => $SingleOne[0],"attempts"=>$SingleOne[1], 'timeMinuts'=>$minutos,'timeSeconds'=>$segundos);
+			$ArrayOfArrayRecords[]=$SingleOne;				
+		}	
+		foreach ($ArrayOfArrayRecords as $clave => $fila) {
+			$attempts[$clave] = $fila['attempts'];
+			$timeMinuts[$clave] = $fila['timeMinuts'];
+			$timeSeconds[$clave] = $fila['timeSeconds'];
+		}
+		array_multisort($attempts, SORT_ASC, $timeMinuts, SORT_ASC,$timeSeconds, SORT_ASC, $ArrayOfArrayRecords);
+		echo "<table><tr><th>Name</th><th>Attempts</th><th>Time</th></tr>";
+		foreach ($ArrayOfArrayRecords as $clave => $fila){
+			echo "<tr><td>".$fila['name']."</td>";
+			echo "<td>".$fila['attempts']."</td>";
+			if ($fila['timeSeconds']<10){
+				$nuevosSegundos="0".$fila['timeSeconds'];
+			}else{
+				$nuevosSegundos=$fila['timeSeconds'];
+			}
+			echo "<td>".$fila['timeMinuts'].":".$nuevosSegundos."</td></tr>";
+		}
+		echo "</table>";
+	?>
+	<br>
+	<button class="myButton" onclick="hideRanks('rankingNormal'); playAudio()">GO BACK</button>
+	</div>
+	<!-- END -->
+	<!-- RANKING HARD -->
+	<div id="rankingHard" class="rankDiv" style="visibility: hidden;">
+	<?php
+		$file = file("txt/recordsNormal.txt");
+		$ArrayOfArrayRecords=[];
+		for ($i=0; $i < sizeof($file) ; $i++) { 
+			$SingleOne=explode(";", $file[$i]);
+			$minutos=intval(intval($SingleOne[2])/60);
+			$minutosSinSegundos=$minutos*60;
+			$segundos=intval($SingleOne[2])-$minutosSinSegundos;
+			
+			$SingleOne= array('name' => $SingleOne[0],"attempts"=>$SingleOne[1], 'timeMinuts'=>$minutos,'timeSeconds'=>$segundos);
+			$ArrayOfArrayRecords[]=$SingleOne;				
+		}	
+		foreach ($ArrayOfArrayRecords as $clave => $fila) {
+			$attempts[$clave] = $fila['attempts'];
+			$timeMinuts[$clave] = $fila['timeMinuts'];
+			$timeSeconds[$clave] = $fila['timeSeconds'];
+		}
+		array_multisort($attempts, SORT_ASC, $timeMinuts, SORT_ASC,$timeSeconds, SORT_ASC, $ArrayOfArrayRecords);
+		echo "<table><tr><th>Name</th><th>Attempts</th><th>Time</th></tr>";
+		foreach ($ArrayOfArrayRecords as $clave => $fila){
+			echo "<tr><td>".$fila['name']."</td>";
+			echo "<td>".$fila['attempts']."</td>";
+			if ($fila['timeSeconds']<10){
+				$nuevosSegundos="0".$fila['timeSeconds'];
+			}else{
+				$nuevosSegundos=$fila['timeSeconds'];
+			}
+			echo "<td>".$fila['timeMinuts'].":".$nuevosSegundos."</td></tr>";
+		}
+		echo "</table>";
+	?>
+	<br>
+	<button class="myButton" onclick="hideRanks('rankingHard'); playAudio()">GO BACK</button>
+	</div>
+	<!-- END -->
 	</body>
 <script type="text/javascript">
 var difficulty = "<?php echo $_SESSION['difficulty'] ?>";

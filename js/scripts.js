@@ -273,6 +273,16 @@ function checkExtreme(mode){
   }
 }
 
+function revealRanks(id) {
+  document.getElementById(id).style.visibility = 'visible';
+  document.getElementById("menu").style.visibility = 'hidden';
+}
+
+function hideRanks(id) {
+  document.getElementById(id).style.visibility = 'hidden';
+  document.getElementById("menu").style.visibility = 'visible';
+}
+
 function activateEgg(){
   egg++;
   if (egg==3){
