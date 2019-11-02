@@ -12,7 +12,6 @@
 		$numOfHelp1 = 0;
 		$numOfHelp2 = 0;
 		$close = false;
-		echo "<script>console.log('% -> ".($helps%2)."');</script>";
 		for ($i=0; $i < $helps; $i++) {
 			if ($numOfHelp1 < $numOfHelp2) {
 				$span = "<span onclick='deleteTrash(this)' class='helps'>";
@@ -59,6 +58,7 @@
 	}
 
 	$words = explode(";", strtoupper($file[0]));
+	$words[sizeof($words)-1] = substr($words[sizeof($words)-1], 0, strlen($words[0]));
 
 	while (sizeof($words) > $countOfWords) {
 		$index = rand(0, sizeof($words)-1);
@@ -218,6 +218,7 @@
 	$col1 = array_slice($memory_dump, 0, $column_length);
 	$col2 = array_slice($memory_dump, $column_length, $column_length);
 	echo "<p hidden id='password'>".$words[rand(0, sizeof($words)-1)]."</p>";
+	echo "<p hidden id='extremeMode'>".$_SESSION['extreme']."</p>";
 
 	function getSymbols($symbol) {
 		$symb = "!\"#$%&'(*+,-./:;<=?@[\^_`{|~";

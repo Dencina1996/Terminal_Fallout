@@ -6,13 +6,13 @@ var timer_is_on;
 var minutes = 0;
 var seconds = 0;
 var egg=0;
-//const word_length = document.getElementById("password").innerHTML.length;
 
 // FUNCTIONS //
 
   // WORD CHECKING AND REPLACING //
 
     function checkWord(word) {
+      var word_length = document.getElementById("password").innerHTML.length;
       var hasBR = false;
     	word.onclick = null;
     	if (tries < 4) {
@@ -34,6 +34,7 @@ var egg=0;
           let att = tries;
     			tries = 5;
           disableSpans();
+          disableHelps();
           setTimeout(function() {
             var username = prompt("You won! Enter your name:");
             performClick(username, att.toString(), document.getElementById("save"), "click");
@@ -61,23 +62,27 @@ var egg=0;
     				}
     			}
     			repeatedLetters=repeatedLetters-1;
-    			document.getElementById("rightCheckColText").innerHTML+="<br>> Entry denied<br>> "+repeatedLetters+"/"+pass.length+" correct"
-    		  tries++;
+          tries++;
+          if (document.getElementById("extremeMode").innerHTML == "true") {
+            extremeMode(repeatedLetters, pass);
+          } else {
+            document.getElementById("rightCheckColText").innerHTML += "<br>> Entry denied<br>> "+repeatedLetters+"/"+pass.length+" correct";
+          }
     		}
     	}
     	if(tries==4) {
-    		document.getElementsByTagName('span').onclick = null;
+    		//document.getElementsByTagName('span').onclick = null;
     		document.getElementById("rightCheckColText").innerHTML+="<br>> Terminal blocked";
     		tries++;
         disableSpans();
+        disableHelps();
         document.getElementById('endImg').src = '../img/Lose.png';
         document.getElementById('endImg').style.visibility = 'visible';
         stopTimer();
         setTimeout(function() {
            alert('Goodbye!');
            window.location.href = '../index.php';
-
-          },3000);
+          }, 3000);
     	}
     }
 
@@ -123,7 +128,33 @@ var egg=0;
     for (var i = 0; i < elem_length; i++) {
       elements[0].onmouseover = function() {};
       elements[0].onmouseout = function() {};
+      elements[0].onclick = null;
       elements[0].className = "fail";
+    }
+  }
+
+// DISABLES ALL HELPS (WHEN THE GAME ENDS)
+  function disableHelps() {
+    var helps = document.getElementsByClassName('helps');
+    var elem_length = helps.length;
+    for (var i = 0; i < elem_length; i++) {
+      helps[0].onmouseover = function() {};
+      helps[0].onmouseout = function() {};
+      helps[0].onclick = null;
+      helps[0].className = "fail";
+    }
+  }
+
+
+  var lastRepeatedLetters = 0;
+// RULES OF EXTREME MODE (ONLY WHEN EXTREME MODE IS ON)
+  function extremeMode(repeatedLetters, pass) {
+    if (lastRepeatedLetters > repeatedLetters) {
+      document.getElementById("rightCheckColText").innerHTML += "<br>> Entry denied<br>> Last: "+lastRepeatedLetters+"/"+pass.length+" correct <br>> Now: "+repeatedLetters+"/"+pass.length+" correct";
+      tries = 4;
+    } else {
+      lastRepeatedLetters = repeatedLetters;
+      document.getElementById("rightCheckColText").innerHTML += "<br>> Entry denied<br>> "+repeatedLetters+"/"+pass.length+" correct";
     }
   }
 
@@ -263,13 +294,13 @@ var egg=0;
       bgAudio.volume = 1.0;
       buttonAudio.volume = 1.0;
     }
-  } 
-    
-function checkExtreme(mode){  
-  if(document.getElementById("extreme").checked === true){
-   mode.href+="&extreme=true"; 
-  }else if(document.getElementById("extreme").checked === false) {   
-    mode.href+="&extreme=false"; 
+  }
+
+function checkExtreme(mode){
+  if (document.getElementById("extreme").checked === true) {
+    mode.href+="&extreme=true";
+  }else if(document.getElementById("extreme").checked === false) {
+    mode.href+="&extreme=false";
   }
 }
 

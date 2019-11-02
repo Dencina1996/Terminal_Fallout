@@ -54,7 +54,6 @@
 			</div>
 			<div id="leftSymCol" class="thickColumn">
 				<?php
-					$symbols = "!\"#$%&'()*+,-./:;?=>@[\]^_`{|}~";
 					$index = 0;
 					for ($i = 0; $i < 17; $i++) {
 						for ($x = 0; $x < 12; $x++) {
@@ -75,7 +74,6 @@
 			</div>
 			<div id="rightSymCol" class="thickColumn">
 				<?php
-					$symbols = "!\"#$%&'()*+,-./:;?=>@[\]^_`{|}~";
 					$index = 0;
 					for ($i = 0; $i < 17; $i++) {
 						for ($x = 0; $x < 12; $x++) {
