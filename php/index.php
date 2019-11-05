@@ -7,6 +7,7 @@
 		<title>Terminal Fallout 3</title>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css">
 		<link rel="stylesheet" type="text/css" href="../css/easteregg.css">
+		<link rel="stylesheet" type="text/css" href="../css/min.css">
 		<link rel="stylesheet" type="text/css" href="../css/linesBackground.css">
 		<script type="text/javascript" src="../js/scripts.js"></script>
 		<script type="text/javascript">
@@ -20,12 +21,20 @@
 		</script>
 	</head>
 	<body>
+		<img id="audioImg" src="/img/speaker.png" onclick="audioControl()" class="enabled">
+		<audio autoplay loop>
+			<source src="/sound/bg_terminal.mp3"  type="audio/ogg">
+		</audio>
+		<audio>
+			<source src="/sound/word.mp3" type="audio/mp3">
+		</audio>
 		<div id="gameTimer" onclick="activateEgg()">
 			<label id="minLabel"></label>:<label id="secLabel"></label>
 		</div>
 		<div id="TerminalImage"></div>
 		<div id="epi"></div>
       	<div id="screen">
+      		<img id="audioImg" src="../img/speaker.png" onclick="audioControl()" class="enabled">
         	<div id="layer"></div>
         	<div id="overlay"></div>
       	</div>

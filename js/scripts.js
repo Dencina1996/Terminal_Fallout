@@ -6,6 +6,9 @@ var timer_is_on;
 var minutes = 0;
 var seconds = 0;
 var egg=0;
+var win = new Audio('/sound/win.mp3');
+var lose = new Audio('/sound/lose.wav');
+var easteregg = new Audio('/sound/easteregg.mp3');
 
 // FUNCTIONS //
 
@@ -26,6 +29,7 @@ var egg=0;
     		document.getElementById("rightCheckColText").innerHTML += "<br>> "+wordWithoutBr;
     		var pass = document.getElementById("password").innerHTML;
     		if (wordWithoutBr === pass) {
+          win.play();
           document.getElementById('endImg').src = '../img/Win.png';
           document.getElementById('endImg').style.visibility = 'visible';
           stopTimer();
@@ -72,6 +76,7 @@ var egg=0;
     	}
     	if(tries==4) {
     		//document.getElementsByTagName('span').onclick = null;
+        lose.play();
     		document.getElementById("rightCheckColText").innerHTML+="<br>> Terminal blocked";
     		tries++;
         disableSpans();
@@ -283,13 +288,13 @@ var egg=0;
     var bgAudio = document.getElementsByTagName("audio")[0];
     var buttonAudio = document.getElementsByTagName("audio")[1];
     if (soundImg.className == 'enabled') {
-      soundImg.src = 'img/mute.png';
+      soundImg.src = '/img/mute.png';
       soundImg.className = 'disabled';
       bgAudio.volume = 0.0;
       buttonAudio.volume = 0.0;
     }
     else if (soundImg.className == 'disabled') {
-      soundImg.src = 'img/speaker.png';
+      soundImg.src = '/img/speaker.png';
       soundImg.className = 'enabled';
       bgAudio.volume = 1.0;
       buttonAudio.volume = 1.0;
@@ -319,8 +324,11 @@ function activateEgg(){
   if (egg==3){
   document.getElementById('screen').style.visibility = 'hidden';
   document.getElementById('epi').style.visibility = 'visible';
+  easteregg.play();
+  easteregg.loop = true;
  }else if(egg>3){
   egg=0;
+  easteregg.pause();
   document.getElementById('screen').style.visibility = 'visible';
   document.getElementById('epi').style.visibility = 'hidden';
  }

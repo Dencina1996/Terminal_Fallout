@@ -14,21 +14,21 @@
 		$close = false;
 		for ($i=0; $i < $helps; $i++) {
 			if ($numOfHelp1 < $numOfHelp2) {
-				$span = "<span onclick='deleteTrash(this)' class='helps'>";
+				$span = "<span onclick='deleteTrash(this); playAudio()' class='helps'>";
 				array_push($helps_easy, $span);
 				$numOfHelp1++;
 			} else if ($numOfHelp2 < $numOfHelp1) {
-				$span = "<span onclick='resetAttempts(this)' class='helps'>";
+				$span = "<span onclick='resetAttempts(this); playAudio()' class='helps'>";
 				array_push($helps_easy, $span);
 				$numOfHelp2++;
 			} else {
 				$click_option = rand(0, 1);
 				if ($click_option == 0) {
-					$span = "<span onclick='deleteTrash(this)' class='helps'>";
+					$span = "<span onclick='deleteTrash(this); playAudio()' class='helps'>";
 					array_push($helps_easy, $span);
 					$numOfHelp1++;
 				} else {
-					$span = "<span onclick='resetAttempts(this)' class='helps'>";
+					$span = "<span onclick='resetAttempts(this); playAudio()' class='helps'>";
 					array_push($helps_easy, $span);
 					$numOfHelp2++;
 				}
@@ -203,7 +203,7 @@
 			array_splice($numbers, array_search($num+$i, $numbers), 1);
 			if (($num+$i) >= $copy && $num_letter < $length_word) {
 				if (($num+$i) == $copy) {
-					$span = html_entity_decode("<span onclick='checkWord(this)' onmouseover='sendCheck(this)' onmouseleave='cleanCheck()' class='terminalWords'>").$word[$num_letter];
+					$span = html_entity_decode("<span onclick='checkWord(this); playAudio()' onmouseover='sendCheck(this)' onmouseleave='cleanCheck()' class='terminalWords'>").$word[$num_letter];
 					$memory_dump[$num+$i] = $span;
 				} elseif ($num_letter == ($length_word - 1)) {
 					$memory_dump[$num+$i] = $word[$num_letter].html_entity_decode("</span>");

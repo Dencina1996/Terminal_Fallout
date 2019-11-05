@@ -1,4 +1,10 @@
-#audioImg {	width: 4vw;
+@media  screen and (max-width: 1366px) {
+	#audioImg {	width: 4vw;
 			position: absolute;
 			padding: 1vw;
+			z-index: 10000;
+			left: 20px;
+			top: 65px;
+	}
 }
+
