@@ -145,7 +145,7 @@
 	<!-- RANKING HARD -->
 	<div id="rankingHard" class="rankDiv" style="visibility: hidden;">
 	<?php
-		$file = file("txt/recordsNormal.txt");
+		$file = file("txt/recordsHard.txt");
 		$ArrayOfArrayRecords=[];
 		for ($i=0; $i < sizeof($file) ; $i++) { 
 			$SingleOne=explode(";", $file[$i]);
