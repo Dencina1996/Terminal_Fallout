@@ -9,13 +9,19 @@ var egg=0;
 var win = new Audio('/sound/win.mp3');
 var lose = new Audio('/sound/lose.wav');
 var easteregg = new Audio('/sound/easteregg.mp3');
+var word_length = 0;
 
 // FUNCTIONS //
+
+  function setWordLength() {
+    console.log("set");
+    word_length = document.getElementById("password").innerHTML.length;
+    console.log("Length: "+length);
+  }
 
   // WORD CHECKING AND REPLACING //
 
     function checkWord(word) {
-      var word_length = document.getElementById("password").innerHTML.length;
       var hasBR = false;
     	word.onclick = null;
     	if (tries < 4) {

@@ -9,7 +9,7 @@
 		<link rel="stylesheet" type="text/css" href="../css/easteregg.css">
 		<link rel="stylesheet" type="text/css" href="../css/min.css">
 		<link rel="stylesheet" type="text/css" href="../css/linesBackground.css">
-		<script type="text/javascript" src="../js/scripts.js"></script>
+		<script type="text/javascript" src="../js/scripts.js">setWordLength();</script>
 		<script type="text/javascript">
 			setTimeout(function(){
 				document.getElementsByTagName('html')[0].style.background = "url('')";
