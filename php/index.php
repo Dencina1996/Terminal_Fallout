@@ -9,7 +9,7 @@
 		<link rel="stylesheet" type="text/css" href="../css/easteregg.css">
 		<link rel="stylesheet" type="text/css" href="../css/min.css">
 		<link rel="stylesheet" type="text/css" href="../css/linesBackground.css">
-		<script type="text/javascript" src="../js/scripts.js">setWordLength();</script>
+		<script type="text/javascript" src="../js/scripts.js"></script>
 		<script type="text/javascript">
 			setTimeout(function(){
 				document.getElementsByTagName('html')[0].style.background = "url('')";
@@ -21,12 +21,12 @@
 		</script>
 	</head>
 	<body>
-		<img id="audioImg" src="/img/speaker.png" onclick="audioControl()" class="enabled">
+		<img id="audioImg" src="../img/speaker.png" onclick="audioControl()" class="enabled">
 		<audio autoplay loop>
-			<source src="/sound/bg_terminal.mp3"  type="audio/ogg">
+			<source src="../sound/bg_terminal.mp3"  type="audio/ogg">
 		</audio>
 		<audio>
-			<source src="/sound/word.mp3" type="audio/mp3">
+			<source src="../sound/word.mp3" type="audio/mp3">
 		</audio>
 		<div id="gameTimer" onclick="activateEgg()">
 			<label id="minLabel"></label>:<label id="secLabel"></label>

@@ -6,22 +6,19 @@ var timer_is_on;
 var minutes = 0;
 var seconds = 0;
 var egg=0;
-var win = new Audio('/sound/win.mp3');
-var lose = new Audio('/sound/lose.wav');
-var easteregg = new Audio('/sound/easteregg.mp3');
-var word_length = 0;
+var win = new Audio('../sound/win.mp3');
+var lose = new Audio('../sound/lose.wav');
+var easteregg = new Audio('../sound/easteregg.mp3');
+var word_length = -1;
 
 // FUNCTIONS //
-
-  function setWordLength() {
-    console.log("set");
-    word_length = document.getElementById("password").innerHTML.length;
-    console.log("Length: "+length);
-  }
 
   // WORD CHECKING AND REPLACING //
 
     function checkWord(word) {
+      if (word_length === -1) {
+        word_length = document.getElementById("password").innerHTML.length;
+      }
       var hasBR = false;
     	word.onclick = null;
     	if (tries < 4) {
@@ -224,6 +221,9 @@ var word_length = 0;
 // HELP: DELETE MISTAKEN WORD //
 
   function deleteTrash(help) {
+    if (word_length === -1) {
+      word_length = document.getElementById("password").innerHTML.length;
+    }
     var words = document.getElementsByClassName("terminalWords");
     var positions = [];
     for (var i = 0; i < words.length; i++) {
@@ -263,6 +263,9 @@ var word_length = 0;
 // HELP: RESET ATTEMPTS //
 
   function resetAttempts(help) {
+    if (word_length === -1) {
+      word_length = document.getElementById("password").innerHTML.length;
+    } 
     tries = 0;
     attempts = 4;
     var attempts_squares = document.getElementsByClassName("attemptDiv");
@@ -294,13 +297,13 @@ var word_length = 0;
     var bgAudio = document.getElementsByTagName("audio")[0];
     var buttonAudio = document.getElementsByTagName("audio")[1];
     if (soundImg.className == 'enabled') {
-      soundImg.src = '/img/mute.png';
+      soundImg.src = '../img/mute.png';
       soundImg.className = 'disabled';
       bgAudio.volume = 0.0;
       buttonAudio.volume = 0.0;
     }
     else if (soundImg.className == 'disabled') {
-      soundImg.src = '/img/speaker.png';
+      soundImg.src = '../img/speaker.png';
       soundImg.className = 'enabled';
       bgAudio.volume = 1.0;
       buttonAudio.volume = 1.0;
