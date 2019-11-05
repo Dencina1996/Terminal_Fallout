@@ -6,9 +6,9 @@ var timer_is_on;
 var minutes = 0;
 var seconds = 0;
 var egg=0;
-var win = new Audio('sound/win.mp3');
-var lose = new Audio('sound/lose.wav');
-var easteregg = new Audio('sound/easteregg.mp3');
+var win = new Audio('../sound/win.mp3');
+var lose = new Audio('../sound/lose.wav');
+var easteregg = new Audio('../sound/easteregg.mp3');
 
 // FUNCTIONS //
 
