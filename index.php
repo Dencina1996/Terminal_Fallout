@@ -11,10 +11,10 @@
 	<body>
 		<img id="audioImg" src="img/speaker.png" onclick="audioControl()" class="enabled">
 		<audio autoplay loop>
-			<source src="/sound/bg_music.mp3"  type="audio/ogg">
+			<source src="sound/bg_music.mp3"  type="audio/ogg">
 		</audio>
 		<audio>
-			<source src="/sound/sound.mp3" type="audio/mp3">
+			<source src="sound/sound.mp3" type="audio/mp3">
 		</audio>
 		<?php
 			session_start();
