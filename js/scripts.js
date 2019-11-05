@@ -283,18 +283,24 @@ var easteregg = new Audio('../sound/easteregg.mp3');
     audio.play();
   }
 
-  function audioControl() {
+  function audioControl(type) {
     var soundImg = document.getElementById('audioImg');
     var bgAudio = document.getElementsByTagName("audio")[0];
     var buttonAudio = document.getElementsByTagName("audio")[1];
+    var ruta='';
+    if(type=='terminal'){
+      ruta='../';
+    }else if(type=='menu'){
+      ruta='';
+    }
     if (soundImg.className == 'enabled') {
-      soundImg.src = '../img/mute.png';
+      soundImg.src = ruta+'img/mute.png';
       soundImg.className = 'disabled';
       bgAudio.volume = 0.0;
       buttonAudio.volume = 0.0;
     }
     else if (soundImg.className == 'disabled') {
-      soundImg.src = '../img/speaker.png';
+      soundImg.src = ruta+'img/speaker.png';
       soundImg.className = 'enabled';
       bgAudio.volume = 1.0;
       buttonAudio.volume = 1.0;

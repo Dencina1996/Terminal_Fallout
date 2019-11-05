@@ -21,7 +21,7 @@
 		</script>
 	</head>
 	<body>
-		<img id="audioImg" src="../img/speaker.png" onclick="audioControl()" class="enabled">
+		<img id="audioImg" src="../img/speaker.png" onclick="audioControl('terminal')" class="enabled">
 		<audio autoplay loop>
 			<source src="../sound/bg_terminal.mp3"  type="audio/ogg">
 		</audio>
@@ -34,7 +34,7 @@
 		<div id="TerminalImage"></div>
 		<div id="epi"></div>
       	<div id="screen">
-      		<img id="audioImg" src="../img/speaker.png" onclick="audioControl()" class="enabled">
+      		<img id="audioImg" src="img/speaker.png" onclick="audioControl()" class="enabled">
         	<div id="layer"></div>
         	<div id="overlay"></div>
       	</div>

@@ -9,7 +9,7 @@
 		<script type="text/javascript" src="js/scripts.js"></script>
 	</head>
 	<body>
-		<img id="audioImg" src="img/speaker.png" onclick="audioControl()" class="enabled">
+		<img id="audioImg" src="img/speaker.png" onclick="audioControl('menu')" class="enabled">
 		<audio autoplay loop>
 			<source src="sound/bg_music.mp3"  type="audio/ogg">
 		</audio>
