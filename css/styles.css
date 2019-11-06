@@ -6,7 +6,8 @@
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-  cursor: url("/img/cursor.cur"), auto;
+  cursor: url("../img/cursor.cur"), auto;
+
 }
 
 html, body {
@@ -18,23 +19,29 @@ html, body {
        -ms-user-select: none;
         -o-user-select: none;
            user-select: none;
-           visibility: hidden;
-            cursor: url("/img/cursor.cur"), auto;
+            cursor: url("../img/cursor.cur"), auto;
               height: 100%;
                 overflow: hidden;
+      background-color: black;
+      font-family: 'FSEX300';
+      font-size: 1.5vw;
 }
 
 @font-face {	font-family: FSEX300;
 				src: url(FSEX300.ttf);
 	}
 
-html {	background: url(../img/screenGif.gif) no-repeat center fixed;
-  		background-color: black;
-  		background-size: cover;
-  		font-family: 'FSEX300';
-  		font-size: 1.5vw;
-  		overflow: hidden;
-	}
+
+#TerminalGif{
+  position: absolute;
+  background-image: url(../img/screenGif.gif) ;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:cover;
+  width: 100%;
+  height: 100%;
+  z-index: 21000;
+}
 
 #audioImg { width: 4vw;
       position: absolute;
@@ -268,4 +275,9 @@ html {	background: url(../img/screenGif.gif) no-repeat center fixed;
   to {
     visibility: visible;
   }
+}
+
+
+#configDalt{
+  height: 50px;
 }

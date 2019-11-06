@@ -3,18 +3,24 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
 		<title>Terminal Fallout 3</title>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css">
 		<link rel="stylesheet" type="text/css" href="../css/easteregg.css">
 		<link rel="stylesheet" type="text/css" href="../css/min.css">
 		<link rel="stylesheet" type="text/css" href="../css/linesBackground.css">
+
+		<?php	
+		if (isset($_SESSION['colors'])) {
+			echo "<link rel='stylesheet' type='text/css' href='../css/".$_SESSION['colors']."'>";
+		}
+    ?>
+
 		<script type="text/javascript" src="../js/scripts.js"></script>
 		<script type="text/javascript">
 			setTimeout(function(){
-				document.getElementsByTagName('html')[0].style.background = "url('')";
-				document.getElementsByTagName('html')[0].style.backgroundSize = "";
-				document.getElementsByTagName('html')[0].style.backgroundColor = "";
+
+				document.getElementById('TerminalGif').style.visibility =  "hidden";
 				document.getElementsByTagName('body')[0].style.visibility = "visible";
 				startTimer();
 				 }, 1200);
@@ -31,10 +37,12 @@
 		<div id="gameTimer" onclick="activateEgg()">
 			<label id="minLabel"></label>:<label id="secLabel"></label>
 		</div>
+
+		<div id="TerminalGif"></div>
 		<div id="TerminalImage"></div>
 		<div id="epi"></div>
       	<div id="screen">
-      		<img id="audioImg" src="img/speaker.png" onclick="audioControl()" class="enabled">
+      		<img id="audioImg" src="../img/speaker.png" onclick="audioControl()" class="enabled">
         	<div id="layer"></div>
         	<div id="overlay"></div>
       	</div>

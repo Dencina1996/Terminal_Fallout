@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<?php session_start();?>
 	<head>
 		<meta charset="utf-8">
 		<link rel="shortcut icon" href="img/favicon.ico">
@@ -7,8 +8,34 @@
 		<link rel="stylesheet" type="text/css" href="css/menustyle.css">
 		<link rel="stylesheet" type="text/css" href="css/min.css">
 		<script type="text/javascript" src="js/scripts.js"></script>
+	<?php
+		
+		
+			echo "<link id='colors' rel='stylesheet' type='text/css' href='css/".$_SESSION['colors']."'>";
+		
+        if(isset($_GET["stylescss"])){
+           $Filecss=$_GET["stylescss"];
+           echo '<script type="text/javascript">document.getElementById("colors").remove();</script>';
+           echo "<link id='colors' rel='stylesheet' type='text/css' href='css/".$Filecss."'>";    
+             $_SESSION['colors'] = $_GET['stylescss'];	
+    }
+    ?>
+
 	</head>
 	<body>
+
+
+
+<form class="changestyle" action="#" method="get">
+	<p>Mode</p>
+		<select name="stylescss">
+			<option value="normal.css">Normal</option>
+			<option value="achromatic.css">Achromatic</option>
+		</select>
+		<input type="submit" value="Change" name="submit"/>
+	</form>
+
+		<div id="menuImage"></div>
 		<img id="audioImg" src="img/speaker.png" onclick="audioControl('menu')" class="enabled">
 		<audio autoplay loop>
 			<source src="sound/bg_music.mp3"  type="audio/ogg">
@@ -17,7 +44,6 @@
 			<source src="sound/sound.mp3" type="audio/mp3">
 		</audio>
 		<?php
-			session_start();
 			if ( isset($_GET['difficulty']) ) { 
 				$_SESSION['difficulty'] = $_GET['difficulty'];				
 				if(isset($_GET['extreme'])){
@@ -145,7 +171,7 @@
 	<!-- RANKING HARD -->
 	<div id="rankingHard" class="rankDiv" style="visibility: hidden;">
 	<?php
-		$file = file("txt/recordsNormal.txt");
+		$file = file("txt/recordsHard.txt");
 		$ArrayOfArrayRecords=[];
 		for ($i=0; $i < sizeof($file) ; $i++) { 
 			$SingleOne=explode(";", $file[$i]);

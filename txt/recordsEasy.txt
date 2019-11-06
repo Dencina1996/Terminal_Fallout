@@ -3,5 +3,12 @@ David;0;3304
 Makina;0;8
 Michael;0;5
 Dexter;2;14
-Lamar;3;3Manolo;3;14
+Lamar;3;3
+Manolo;3;14
 Miki;0;12
+ddd;3;238
+Almudena;3;15
+ol;0;8
+5555;0;11
+5555;0;7
+hola;2;19
