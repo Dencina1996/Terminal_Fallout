@@ -5,11 +5,12 @@
 		<link rel="shortcut icon" href="img/favicon.ico">
 		<title>Terminal Fallout 3 - Menu</title>
 		<link rel="stylesheet" type="text/css" href="css/menustyle.css">
-		<link rel="stylesheet" type="text/css" href="css/min.css">
+		<link rel="stylesheet" type="text/css" href="css/daltonic.css">
 		<script type="text/javascript" src="js/scripts.js"></script>
 	</head>
 	<body>
 		<img id="audioImg" src="img/speaker.png" onclick="audioControl('menu')" class="enabled">
+		<img id="daltonicImg" src="img/daltonic_false.png" onclick="daltControl('menu')" class="enabled">
 		<audio autoplay loop>
 			<source src="sound/bg_music.mp3"  type="audio/ogg">
 		</audio>
@@ -183,5 +184,6 @@
 <script type="text/javascript">
 var difficulty = "<?php echo $_SESSION['difficulty'] ?>";
 var extreme= "<?php echo $_SESSION['extreme'] ?>";
+document.styleSheets[1].disabled = true;
 </script>
 </html>

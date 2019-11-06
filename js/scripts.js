@@ -10,6 +10,7 @@ var win = new Audio('../sound/win.mp3');
 var lose = new Audio('../sound/lose.wav');
 var easteregg = new Audio('../sound/easteregg.mp3');
 var word_length = -1;
+var daltStyleSheet = document.styleSheets[1];
 
 // FUNCTIONS //
 
@@ -352,4 +353,17 @@ function activateEgg(){
   document.getElementById('screen').style.visibility = 'visible';
   document.getElementById('epi').style.visibility = 'hidden';
  }
+}
+
+function daltControl() {
+  var daltImg = document.getElementById('daltonicImg');
+  if (daltImg.className == 'enabled') {
+      daltImg.src = "/img/daltonic_true.png";
+      daltImg.className = 'disabled';
+      daltStyleSheet.disabled = false;
+    } else if (daltImg.className == 'disabled') {
+      daltImg.src = "/img/daltonic_false.png";
+      daltImg.className = 'enabled';
+      daltStyleSheet.disabled = true;
+    }
 }

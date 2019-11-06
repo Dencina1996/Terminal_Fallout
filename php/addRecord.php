@@ -3,7 +3,6 @@
   receiveAndWrite();
   function receiveAndWrite() {
     if ($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST["username"]) and $_POST["username"]!="") {
-
     if ($_SESSION['difficulty']==1) {
         $file = "../txt/recordsEasy.txt";        
     }else if ($_SESSION['difficulty']==2) {
@@ -12,18 +11,13 @@
         $file = "../txt/recordsHard.txt";     
     }
     $content=$_POST["username"].";".$_POST["attemptsUsr"].";".$_POST["time"]."\n";
+    $_SESSION['user']=$_POST["username"];
+    $_SESSION['attempts']=$_POST["attemptsUsr"];
+    $_SESSION['timeGame']=$_POST["time"];
     $result = file_put_contents($file ,$content , FILE_APPEND | LOCK_EX);
-
       if ($result !== false) {
         echo "<script>alert('Record saved successfully!');</script>";
-
-        if ($_SESSION['difficulty']==1) {
-          echo "<script>location.href = 'rankingEasy.php';</script>";
-        }else if ($_SESSION['difficulty']==2) {
-          echo "<script>location.href = 'rankingNormal.php';</script>";    
-        }else if ($_SESSION['difficulty']==3) {
-          echo "<script>location.href = 'rankingHard.php';</script>";   
-        }
+        echo "<script>location.href = 'ranking.php';</script>";
       }
     }else{
       echo "<script>alert('Goodbye!');</script>";

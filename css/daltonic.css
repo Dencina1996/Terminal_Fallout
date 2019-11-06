@@ -1,0 +1,124 @@
+body, html, * {  background-blend-mode: luminosity;
+        cursor: url("/img/cursor_dalt.cur"), auto;
+  }
+
+#audioImg, #endImg, #TerminalImage, #menuImage, #screen, #TerminalGif, #daltonicImg{ 
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  	filter: grayscale(100%);
+  }
+
+#gameTimer {	
+				background-color: black;
+				border: 3px solid white;
+				color: white;				
+	}
+#generalContainer{
+	color: white;
+}
+
+#attemptCounter, #contentDiv {	
+	color: white;
+	}
+.attemptDiv{
+	background-color: white; 
+}
+
+
+.terminalWords:hover, .helps:hover {	
+            background-color: white;
+						color: black;
+	}
+ 
+
+#menuInit{
+	color: white;
+}
+
+#menu {
+        color: white;
+        background-color: rgba(255, 255, 255, 0.3);
+  }
+
+.menuclick {
+          background-color: rgba(255,255,255,0.6);
+  }
+
+.menuclick::hover {  
+	color: white;
+    background-color: white;
+  }
+
+#MenuHidden{
+	color: white;
+}
+
+.rankDiv table{
+	color: white;
+}
+
+.myButton{
+	color: white;
+}
+
+
+.changestyle{
+  color: white;
+}
+ul li{          
+        background-color: rgba(255,255,255,0.6);
+        border: solid 2px black;
+        border-bottom: 0;
+        
+  }
+
+ul li:hover, .menuclick:hover {  color: grey ;
+                                background-color: white;
+  }
+
+table { 
+        color: white;
+        background-color: white;        
+  }
+
+
+.terminalWords:hover, .helps:hover {	
+						background-color: white;
+						color: black;
+	}
+
+
+input[type=checkbox] + label:before { 
+      border: 2px solid black;                                      
+  }
+ 
+
+input[type=checkbox]:checked + label:before { background-color: white;
+                                              color: #fff;
+                                              border: solid 2px black;
+ }
+
+input[type=checkbox]:disabled + label:before {  
+                                                border-color: #aaa;
+  }
+
+input[type=checkbox]:checked:disabled + label:before {  
+                                                        background-color: #bfb;
+                                                        border-color: #bfb;
+  }
+
+.rankDiv table {  
+                      color: white;
+                      background-color: rgba(255, 255, 255, 0.3);
+                      border: solid 2px black;
+
+}
+
+.rankDiv tr:nth-child(1) {  background-color: rgba(0, 0, 0, 0.7);
+  }
+
+
+.myButton { 
+            border: 2px solid white;
+            color: white;
+            text-shadow:0px 1px 0px #aade7c;
+  }

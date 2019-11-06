@@ -1,7 +1,7 @@
 /********************* RESOLUTION 800x600 *********************/
 
 @media screen and (max-width: 800px) {
-  * { margin : 0;
+  * { margin : 2px;
       padding : 0;
       outline : none;
       border: 0;  
@@ -163,13 +163,21 @@
   .rankDiv th { padding: 10px;
     }
 
-  #audioImg { width: 4vw;
+  #audioImg { width: 8vw;
       position: absolute;
       padding: 1vw;
       z-index: 10000;
-      left: 20px;
-      top: 65px;
+      left: 5px;
+      top: 10px;
   }
+
+  #daltonicImg {  width: 8vw;
+        position: absolute;
+        padding: 1vw;
+        z-index: 10000;
+        left: 80px;
+        top: 10px;
+    }
 
   .myButton { display: flex;
               position: fixed;
@@ -360,13 +368,21 @@
   .rankDiv th { padding: 10px;
     }
 
-  #audioImg { width: 4vw;
+  #audioImg { width: 8vw;
       position: absolute;
       padding: 1vw;
       z-index: 10000;
-      left: 20px;
-      top: 65px;
+      left: 5px;
+      top: 10px;
   }
+
+  #daltonicImg {  width: 8vw;
+        position: absolute;
+        padding: 1vw;
+        z-index: 10000;
+        left: 100px;
+        top: 10px;
+    }
 
   .myButton { display: flex;
               position: fixed;
@@ -557,13 +573,21 @@
   .rankDiv th { padding: 10px;
     }
 
-  #audioImg { width: 4vw;
+  #audioImg { width: 6vw;
       position: absolute;
       padding: 1vw;
       z-index: 10000;
-      left: 20px;
-      top: 65px;
+      left: 5px;
+      top: 10px;
   }
+
+  #daltonicImg {  width: 6vw;
+        position: absolute;
+        padding: 1vw;
+        z-index: 10000;
+        left: 100px;
+        top: 10px;
+    }
 
   .myButton { display: flex;
               position: fixed;
@@ -754,13 +778,21 @@
   .rankDiv th { padding: 10px;
     }
 
-  #audioImg { width: 4vw;
+  #audioImg { width: 6vw;
       position: absolute;
       padding: 1vw;
       z-index: 10000;
-      left: 20px;
-      top: 65px;
+      left: 5px;
+      top: 10px;
   }
+
+  #daltonicImg {  width: 6vw;
+        position: absolute;
+        padding: 1vw;
+        z-index: 10000;
+        left: 135px;
+        top: 10px;
+    }
 
   .myButton { display: flex;
               position: fixed;
@@ -785,3 +817,61 @@
 }
 
 /********************* END *********************/
+
+/********************* RESOLUTION 360x640 *********************/
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (orientation: portrait) {
+
+  #audioImg { width: 12vw;
+      position: absolute;
+      padding: 1vw;
+      z-index: 10000;
+      left: 20px;
+      top: 65px;
+  }
+
+  #daltonicImg {  width: 12vw;
+        position: absolute;
+        padding: 1vw;
+        z-index: 10000;
+        left: 150px;
+        top: 65px;
+    }
+
+  #Ranking {  width: -webkit-fill-available;
+    }
+
+  * { margin: 2px;
+    }
+
+}
+
+/********************* END *********************/
+
+/********************* RESOLUTION 375x667 *********************/
+
+@media screen and (device-width: 375px) and (device-height: 667px) and (orientation: portrait) {
+
+  #audioImg { width: 12vw;
+      position: absolute;
+      padding: 1vw;
+      z-index: 10000;
+      left: 20px;
+      top: 65px;
+  }
+
+  #daltonicImg {  width: 12vw;
+        position: absolute;
+        padding: 1vw;
+        z-index: 10000;
+        left: 150px;
+        top: 65px;
+    }
+
+  #Ranking {  width: -webkit-fill-available;
+    }
+
+  * { margin: 2px;
+    }
+
+}
