@@ -12,7 +12,7 @@
 		
 		
 		if (isset($_SESSION['colors'])) {
-			echo "<link rel='stylesheet' type='text/css' href='../css/".$_SESSION['colors']."'>";
+			echo "<link rel='stylesheet' type='text/css' href='css/".$_SESSION['colors']."'>";
 		}
 
         if(isset($_GET["stylescss"])){
