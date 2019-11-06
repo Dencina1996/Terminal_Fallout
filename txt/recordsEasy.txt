@@ -6,3 +6,8 @@ Dexter;2;14
 Lamar;3;3
 Manolo;3;14
 Miki;0;12
+Jesus Christ;1;132
+Cantinflas;0;14
+LALA;0;46
+Charlie;3;156
+McMillan;0;11

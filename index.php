@@ -71,6 +71,7 @@
 	</div>
 	<!-- RANKING EASY -->
 	<div id="rankingEasy" class="rankDiv" style="visibility: hidden;">
+	<button class="myButton" onclick="hideRanks('rankingEasy'); playAudio()">GO BACK</button>
 	<?php
 		$file = file("txt/recordsEasy.txt");
 		$ArrayOfArrayRecords=[];
@@ -102,7 +103,6 @@
 		}
 		echo "</table>";
 	?>
-	<button class="myButton" onclick="hideRanks('rankingEasy'); playAudio()">GO BACK</button>
 	</div>
 	<!-- END -->
 	<!-- RANKING NORMAL -->

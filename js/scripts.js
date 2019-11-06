@@ -307,12 +307,14 @@ var word_length = -1;
       soundImg.className = 'disabled';
       bgAudio.volume = 0.0;
       buttonAudio.volume = 0.0;
+      easteregg.muted = true;
     }
     else if (soundImg.className == 'disabled') {
       soundImg.src = ruta+'img/speaker.png';
       soundImg.className = 'enabled';
       bgAudio.volume = 1.0;
       buttonAudio.volume = 1.0;
+      easteregg.muted = false;
     }
   }
 
@@ -336,13 +338,16 @@ function hideRanks(id) {
 
 function activateEgg(){
   egg++;
+  var bgAudio = document.getElementsByTagName("audio")[0];
   if (egg==3){
   document.getElementById('screen').style.visibility = 'hidden';
   document.getElementById('epi').style.visibility = 'visible';
   easteregg.play();
   easteregg.loop = true;
+  bgAudio.muted = true;
  }else if(egg>3){
   egg=0;
+  bgAudio.muted = false;
   easteregg.pause();
   document.getElementById('screen').style.visibility = 'visible';
   document.getElementById('epi').style.visibility = 'hidden';
