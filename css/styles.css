@@ -1,278 +1,3 @@
-/********************* RESOLUTION 360x640 *********************/
-
-
-@media screen and (device-width: 360px) and (device-height: 640px) and (orientation: portrait) {
-
-  * {
-    margin : 0;
-    padding : 0;
-    outline : none;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-    cursor: url("/img/cursor.cur"), auto;
-  }
-
-  html, body {
-
-    -webkit-touch-callout: none;
-     -webkit-user-select: none;
-      -khtml-user-select: none;
-        -moz-user-select: none;
-         -ms-user-select: none;
-          -o-user-select: none;
-             user-select: none;
-             visibility: hidden;
-              cursor: url("/img/cursor.cur"), auto;
-                height: 100%;
-                  overflow: hidden;
-  }
-
-  @font-face {  font-family: FSEX300;
-          src: url(FSEX300.ttf);
-    }
-
-  html {  background: url(../img/screenGif.gif) no-repeat center fixed;
-        background-color: black;
-        background-size: cover;
-        font-family: 'FSEX300';
-        font-size: 1.5vw;
-        overflow: hidden;
-    }
-
-  #audioImg { width: 12vw;
-        position: absolute;
-        padding: 1vw;
-        z-index: 10000;
-        left: 10px;
-        top: 15px;
-    }
-
-  #gameTimer {  height: auto;
-    left: 50%;
-    transform: translate(-50%);
-          width: 15vw;
-          background-color: black;
-          border: 3px solid #00d057;
-          color: #00d057;
-          position: absolute;
-          z-index: 40;
-          padding: 1vw;
-          font-size: 4vw;
-          margin: 1vw;
-          text-align: center;
-          border-radius: 50px / 50px;
-    }
-
-  #gameTimer:hover {  filter: opacity(.7);
-    }
-
-  #generalContainer { transform: scale(1.25);
-            position: absolute;
-            width: 45%;
-            height: 50%;
-            padding: 80px;
-            z-index: 35;
-            left: -25px;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            margin: auto;
-            margin-top: 15vh;
-    }
-
-
-  #attemptCounter { color: #00d057;
-            margin: auto;
-            position: relative;
-            font-size: 2vw;
-    }
-
-  .attemptDiv { height: 2vw;
-                width: 2vw;
-                background-color: #00d057;
-                display: inline-block;
-                font-size: 2.5vw;
-                vertical-align: bottom;
-    }
-
-    #containerAttemptDiv {
-      display: inline-block;
-    }
-
-  #contentDiv { position: relative;
-          border-radius: 100px / 50px;
-          color: #00d057;
-          text-align: justify;
-          margin: auto;
-          display: flex;
-          margin-top: 2vh;
-    }
-
-  .thinColumn{
-          width: 5vw;
-          margin-left: 1vw;
-          text-align: left;
-          display: table-column;
-    }
-
-  .thickColumn {  width: 12vw;
-          margin-left: 5px;
-          text-align: justify;
-          letter-spacing: 1px;
-          display: inline-block;
-    }
-
-  #rightCheckCol {  width: 12vw;
-            text-align: left;
-            position: relative;
-
-    }
-    
-  #rightCheckColScrollUp{ bottom: 0px;
-              position: absolute;
-    }
-
-  #rightCheckColText{ vertical-align: text-bottom;
-            width: 15vw;
-    }
-
-  #rightCheckCol #promptWrite { vertical-align: text-bottom;
-    }
-
-  #promptWrite > b {
-    animation: blink-animation 0.5s steps(2, start) infinite;
-    -webkit-animation: blink-animation 1s steps(5, start) infinite;
-  }
-  @keyframes blink-animation {
-    to {
-      visibility: hidden;
-    }
-  }
-  @-webkit-keyframes blink-animation {
-    to {
-      visibility: hidden;
-    }
-  }
-
-  .terminalWords:hover, .helps:hover {  background-color: #00d057;
-              color: black;
-              cursor: default;
-    }
-
-  #TerminalImage{
-    position: absolute;
-    background-image: url(../img/StaticPage.png) ;
-    background-position:center;
-    background-repeat:no-repeat;
-    background-size:cover;
-    width: 100%;
-    height: 100%;
-    z-index: 20;
-  }
-
-  #endImg { transition: transform 5.2s;
-        width: 30vw;
-        height: auto;
-        margin: auto;
-        overflow: hidden;
-        background: none;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        animation: zoominoutsinglefeatured 1s infinite ;
-  }
-
-  @keyframes zoominoutsinglefeatured {
-      0% {
-          transform: scale(1,1);
-      }
-      50% {
-          transform: scale(1.2,1.2);
-      }
-      100% {
-          transform: scale(1,1);
-      }
-  }
-
-  #attemptCounter p {
-      margin-left: 1vw;
-      white-space: nowrap;
-      overflow: hidden;
-      animation: typewriter 4s steps(44) 1s 1 normal both;
-  }
-
-  #attemptCounter p:nth-child(2) {
-      margin-left: 1vw;
-      white-space: nowrap;
-      overflow: hidden;
-      opacity: 0;
-      animation: typewriter2 4s steps(44) 1s 1 normal both;
-      animation-delay: 4s;
-      animation-fill-mode: forwards;
-  }
-
-  #spanAttempts {
-    margin-left: 1vw;
-  }
-
-  #spanAttempts, #containerAttemptDiv, #contentDiv {
-    visibility: hidden;
-    animation: typewriter3 0s ease-in 6s forwards;
-    animation-fill-mode: forwards;
-  }
-
-  @keyframes typewriter{
-    0% {
-      width: 0;
-    }
-    from {
-      opacity: 0;
-    }
-    1% {
-      opacity: 1;
-    }
-    to {
-      opacity: 1;
-      width: 100%;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
-  @keyframes typewriter2{
-    0% {
-      width: 0;
-    }
-    from {
-      opacity: 0;
-    }
-    1% {
-      opacity: 1;
-    }
-    to {
-      opacity: 1;
-      width: 100%;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
-  @keyframes typewriter3{
-    to {
-      visibility: visible;
-    }
-  }
-  
-}
-
-/********************* END *********************/
-
 /********************* RESOLUTION 800x600 *********************/
 
 @media screen and (min-width: 376px) and (max-width: 800px) {
@@ -1353,3 +1078,284 @@
     }
   }
 }
+
+/********************* END *********************/
+
+/********************* RESOLUTION 360x640 *********************/
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (orientation: portrait) {
+
+  * {
+    margin : 0;
+    padding : 0;
+    outline : none;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    cursor: url("/img/cursor.cur"), auto;
+  }
+
+  html, body {
+
+    -webkit-touch-callout: none;
+     -webkit-user-select: none;
+      -khtml-user-select: none;
+        -moz-user-select: none;
+         -ms-user-select: none;
+          -o-user-select: none;
+             user-select: none;
+             visibility: hidden;
+              cursor: url("/img/cursor.cur"), auto;
+                height: 100%;
+                  overflow: hidden;
+  }
+
+  @font-face {  font-family: FSEX300;
+          src: url(FSEX300.ttf);
+    }
+
+  html {  
+        background-color: black;
+        background-size: cover;
+        font-family: 'FSEX300';
+        font-size: 1.5vw;
+        overflow: hidden;
+    }
+
+  #audioImg { width: 12vw;
+        position: absolute;
+        padding: 1vw;
+        z-index: 10000;
+        left: 10px;
+        top: 15px;
+    }
+
+  #gameTimer {  height: auto;
+                left: 50%;
+          transform: translate(-50%);
+          width: 15vw;
+          background-color: black;
+          border: 3px solid #00d057;
+          color: #00d057;
+          position: absolute;
+          z-index: 40;
+          padding: 1vw;
+          font-size: 4vw;
+          margin: 1vw;
+          text-align: center;
+          border-radius: 50px / 50px;
+          top: 30px;
+    }
+
+  #gameTimer:hover {  filter: opacity(.7);
+    }
+
+  #generalContainer { transform: scale(1.25);
+            position: absolute;
+            width: 45%;
+            height: 50%;
+            padding: 80px;
+            z-index: 35;
+            left: -25px;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            margin-top: 15vh;
+    }
+
+
+  #attemptCounter { color: #00d057;
+            margin: auto;
+            position: absolute;
+            font-size: 2vw;
+            transform: scale(1.55);
+            margin-top: 120px;
+    }
+
+  .attemptDiv { height: 2vw;
+                width: 2vw;
+                background-color: #00d057;
+                display: inline-block;
+                font-size: 2.5vw;
+                vertical-align: bottom;
+    }
+
+    #containerAttemptDiv {
+      display: inline-block;
+    }
+
+  #contentDiv { position: relative;
+          border-radius: 100px / 50px;
+          color: #00d057;
+          text-align: justify;
+          margin: auto;
+          display: flex;
+          margin-top: 7.5vh;
+          transform: scale(1.55);
+          margin-top: 310px;
+    }
+
+  .thinColumn{
+          width: 5vw;
+          margin-left: 1vw;
+          text-align: left;
+          display: table-column;
+    }
+
+  .thickColumn {  width: 12vw;
+          margin-left: 5px;
+          text-align: justify;
+          letter-spacing: 1px;
+          display: inline-block;
+    }
+
+  #rightCheckCol {  width: 12vw;
+            text-align: left;
+            position: relative;
+
+    }
+    
+  #rightCheckColScrollUp{ bottom: 0px;
+              position: absolute;
+    }
+
+  #rightCheckColText{ vertical-align: text-bottom;
+            width: 15vw;
+    }
+
+  #rightCheckCol #promptWrite { vertical-align: text-bottom;
+    }
+
+  #promptWrite > b {
+    animation: blink-animation 0.5s steps(2, start) infinite;
+    -webkit-animation: blink-animation 1s steps(5, start) infinite;
+  }
+  @keyframes blink-animation {
+    to {
+      visibility: hidden;
+    }
+  }
+  @-webkit-keyframes blink-animation {
+    to {
+      visibility: hidden;
+    }
+  }
+
+  .terminalWords:hover, .helps:hover {  background-color: #00d057;
+              color: black;
+              cursor: default;
+    }
+
+  #TerminalImage{
+    position: absolute;
+    background-image: url(../img/StaticPage.png) ;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+  }
+
+  #endImg { transition: transform 5.2s;
+        width: 30vw;
+        height: auto;
+        margin: auto;
+        overflow: hidden;
+        background: none;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        animation: zoominoutsinglefeatured 1s infinite ;
+  }
+
+  @keyframes zoominoutsinglefeatured {
+      0% {
+          transform: scale(1,1);
+      }
+      50% {
+          transform: scale(1.2,1.2);
+      }
+      100% {
+          transform: scale(1,1);
+      }
+  }
+
+  #attemptCounter p {
+      margin-left: 1vw;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typewriter 4s steps(44) 1s 1 normal both;
+  }
+
+  #attemptCounter p:nth-child(2) {
+      margin-left: 1vw;
+      white-space: nowrap;
+      overflow: hidden;
+      opacity: 0;
+      animation: typewriter2 4s steps(44) 1s 1 normal both;
+      animation-delay: 4s;
+      animation-fill-mode: forwards;
+  }
+
+  #spanAttempts {
+    margin-left: 1vw;
+  }
+
+  #spanAttempts, #containerAttemptDiv, #contentDiv {
+    visibility: hidden;
+    animation: typewriter3 0s ease-in 6s forwards;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes typewriter{
+    0% {
+      width: 0;
+    }
+    from {
+      opacity: 0;
+    }
+    1% {
+      opacity: 1;
+    }
+    to {
+      opacity: 1;
+      width: 100%;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes typewriter2{
+    0% {
+      width: 0;
+    }
+    from {
+      opacity: 0;
+    }
+    1% {
+      opacity: 1;
+    }
+    to {
+      opacity: 1;
+      width: 100%;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes typewriter3{
+    to {
+      visibility: visible;
+    }
+  }
+  
+}
+
+/********************* END *********************/
