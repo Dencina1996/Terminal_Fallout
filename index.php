@@ -11,8 +11,10 @@
 	<?php
 		
 		
-			echo "<link id='colors' rel='stylesheet' type='text/css' href='css/".$_SESSION['colors']."'>";
-		
+		if (isset($_SESSION['colors'])) {
+			echo "<link rel='stylesheet' type='text/css' href='../css/".$_SESSION['colors']."'>";
+		}
+
         if(isset($_GET["stylescss"])){
            $Filecss=$_GET["stylescss"];
            echo '<script type="text/javascript">document.getElementById("colors").remove();</script>';
@@ -115,9 +117,10 @@
 			$timeSeconds[$clave] = $fila['timeSeconds'];
 		}
 		array_multisort($attempts, SORT_ASC, $timeMinuts, SORT_ASC,$timeSeconds, SORT_ASC, $ArrayOfArrayRecords);
-		echo "<table><tr><th>Name</th><th>Attempts</th><th>Time</th></tr>";
+		echo "<table><tr><th>Top</th><th>Name</th><th>Attempts</th><th>Time</th></tr>";
 		foreach ($ArrayOfArrayRecords as $clave => $fila){
-			echo "<tr><td>".$fila['name']."</td>";
+			echo "<tr><td>".($clave+1)."</td>";
+			echo "<td>".$fila['name']."</td>";
 			echo "<td>".$fila['attempts']."</td>";
 			if ($fila['timeSeconds']<10){
 				$nuevosSegundos="0".$fila['timeSeconds'];
@@ -125,6 +128,9 @@
 				$nuevosSegundos=$fila['timeSeconds'];
 			}
 			echo "<td>".$fila['timeMinuts'].":".$nuevosSegundos."</td></tr>";
+			if($clave==9){
+				break;
+			}
 		}
 		echo "</table>";
 	?>
@@ -151,9 +157,10 @@
 			$timeSeconds[$clave] = $fila['timeSeconds'];
 		}
 		array_multisort($attempts, SORT_ASC, $timeMinuts, SORT_ASC,$timeSeconds, SORT_ASC, $ArrayOfArrayRecords);
-		echo "<table><tr><th>Name</th><th>Attempts</th><th>Time</th></tr>";
+		echo "<table><tr><th>Top</th><th>Name</th><th>Attempts</th><th>Time</th></tr>";
 		foreach ($ArrayOfArrayRecords as $clave => $fila){
-			echo "<tr><td>".$fila['name']."</td>";
+			echo "<tr><td>".($clave+1)."</td>";
+			echo "<td>".$fila['name']."</td>";
 			echo "<td>".$fila['attempts']."</td>";
 			if ($fila['timeSeconds']<10){
 				$nuevosSegundos="0".$fila['timeSeconds'];
@@ -161,6 +168,9 @@
 				$nuevosSegundos=$fila['timeSeconds'];
 			}
 			echo "<td>".$fila['timeMinuts'].":".$nuevosSegundos."</td></tr>";
+			if($clave==9){
+				break;
+			}
 		}
 		echo "</table>";
 	?>
@@ -188,9 +198,10 @@
 			$timeSeconds[$clave] = $fila['timeSeconds'];
 		}
 		array_multisort($attempts, SORT_ASC, $timeMinuts, SORT_ASC,$timeSeconds, SORT_ASC, $ArrayOfArrayRecords);
-		echo "<table><tr><th>Name</th><th>Attempts</th><th>Time</th></tr>";
+		echo "<table><tr><th>Top</th><th>Name</th><th>Attempts</th><th>Time</th></tr>";
 		foreach ($ArrayOfArrayRecords as $clave => $fila){
-			echo "<tr><td>".$fila['name']."</td>";
+			echo "<tr><td>".($clave+1)."</td>";
+			echo "<td>".$fila['name']."</td>";
 			echo "<td>".$fila['attempts']."</td>";
 			if ($fila['timeSeconds']<10){
 				$nuevosSegundos="0".$fila['timeSeconds'];
@@ -198,6 +209,9 @@
 				$nuevosSegundos=$fila['timeSeconds'];
 			}
 			echo "<td>".$fila['timeMinuts'].":".$nuevosSegundos."</td></tr>";
+			if($clave==9){
+				break;
+			}
 		}
 		echo "</table>";
 	?>
