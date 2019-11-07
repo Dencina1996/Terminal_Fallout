@@ -15,4 +15,5 @@
 
  ***
 #### Retrospectivas
- * **[Retrospectiva Sprint 1](https://github.com/Dencina1996/Terminal_Fallout/wiki/Retrospectiva-Sprint-1)**
+ * **[Retrospectiva Sprint 2](https://github.com/Dencina1996/Terminal_Fallout/wiki/Retrospectiva-Sprint-2)**
+ * **[Retrospectiva Sprint 3](https://github.com/Dencina1996/Terminal_Fallout/wiki/Retrospectiva-Sprint-3)**
