@@ -9,7 +9,7 @@
 		<script type="text/javascript" src="js/scripts.js"></script>
 	</head>
 	<body>
-		
+
 		<img id="audioImg" src="img/speaker.png" onclick="audioControl('menu')" class="enabled">
 		<img id="daltonicImg" src="img/daltonic_false.png" onclick="daltControl('menu')" class="enabled">
 		<audio autoplay loop>
@@ -20,20 +20,20 @@
 		</audio>
 		<?php
 			session_start();
-			if ( isset($_GET['difficulty']) ) { 
-				$_SESSION['difficulty'] = $_GET['difficulty'];				
+			if ( isset($_GET['difficulty']) ) {
+				$_SESSION['difficulty'] = $_GET['difficulty'];
 				if(isset($_GET['extreme'])){
-				$_SESSION['extreme']=$_GET['extreme'];				
+				$_SESSION['extreme']=$_GET['extreme'];
 			}
-				echo '<script type="text/javascript">','window.location.href ="php/index.php";','</script>';			
+				echo '<script type="text/javascript">','window.location.href ="php/index.php";','</script>';
 			}else {
 			$_SESSION['difficulty']=0;
 			}
 		?>
-		
+
 	<div id="menu" style="visibility: visible;">
 		<div id="menuInit">
-			<div class="menuclick" onclick="showHideSomething('GameMode'); playAudio()" style="border-bottom: 0;">PLAY</div>		
+			<div class="menuclick" onclick="showHideSomething('GameMode'); playAudio()" style="border-bottom: 0;">PLAY</div>
 			<div class="menuclick" onclick="showHideSomething('Ranking'); playAudio()">RANKING</div>
 		</div>
 		<div id="MenuHidden">
@@ -77,15 +77,15 @@
 	<?php
 		$file = file("txt/recordsEasy.txt");
 		$ArrayOfArrayRecords=[];
-		for ($i=0; $i < sizeof($file) ; $i++) { 
+		for ($i=0; $i < sizeof($file) ; $i++) {
 			$SingleOne=explode(";", $file[$i]);
 			$minutos=intval(intval($SingleOne[2])/60);
 			$minutosSinSegundos=$minutos*60;
 			$segundos=intval($SingleOne[2])-$minutosSinSegundos;
-			
+
 			$SingleOne= array('name' => $SingleOne[0],"attempts"=>$SingleOne[1], 'timeMinuts'=>$minutos,'timeSeconds'=>$segundos);
-			$ArrayOfArrayRecords[]=$SingleOne;				
-		}	
+			$ArrayOfArrayRecords[]=$SingleOne;
+		}
 		foreach ($ArrayOfArrayRecords as $clave => $fila) {
 			$attempts[$clave] = $fila['attempts'];
 			$timeMinuts[$clave] = $fila['timeMinuts'];
@@ -94,9 +94,13 @@
 		array_multisort($attempts, SORT_ASC, $timeMinuts, SORT_ASC,$timeSeconds, SORT_ASC, $ArrayOfArrayRecords);
 		echo "<table><tr><th>Top</th><th>Name</th><th>Attempts</th><th>Time</th></tr>";
 		foreach ($ArrayOfArrayRecords as $clave => $fila){
-			if ($_SESSION["user"]==$fila['name'] && (int)$_SESSION["attempts"]==(int)$fila['attempts'] && (int)$_SESSION["timeGame"]==(int)$fila['time']){
-				echo "<tr class='userGame'>";
-			}else{
+			if (isset($_SESSION["user"]) && isset($_SESSION["attempts"]) && isset($_SESSION["timeGame"])) {
+				if ($_SESSION["user"]==$fila['name'] && (int)$_SESSION["attempts"]==(int)$fila['attempts'] && (int)$_SESSION["timeGame"]==(int)$fila['time']) {
+					echo "<tr class='userGame'>";
+				} else {
+					echo "<tr>";
+				}
+			} else {
 				echo "<tr>";
 			}
 			echo "<td>".($clave+1)."</td>";
@@ -109,7 +113,7 @@
 			}
 			echo "<td>".$fila['timeMinuts'].":".$nuevosSegundos."</td></tr>";
 			if ($clave==10) {
-				break;	
+				break;
 			}
 		}
 		echo "</table>";
@@ -120,15 +124,15 @@
 	<?php
 		$file = file("txt/recordsNormal.txt");
 		$ArrayOfArrayRecords=[];
-		for ($i=0; $i < sizeof($file) ; $i++) { 
+		for ($i=0; $i < sizeof($file) ; $i++) {
 			$SingleOne=explode(";", $file[$i]);
 			$minutos=intval(intval($SingleOne[2])/60);
 			$minutosSinSegundos=$minutos*60;
 			$segundos=intval($SingleOne[2])-$minutosSinSegundos;
-			
+
 			$SingleOne= array('name' => $SingleOne[0],"attempts"=>$SingleOne[1], 'timeMinuts'=>$minutos,'timeSeconds'=>$segundos);
-			$ArrayOfArrayRecords[]=$SingleOne;				
-		}	
+			$ArrayOfArrayRecords[]=$SingleOne;
+		}
 		foreach ($ArrayOfArrayRecords as $clave => $fila) {
 			$attempts[$clave] = $fila['attempts'];
 			$timeMinuts[$clave] = $fila['timeMinuts'];
@@ -137,9 +141,13 @@
 		array_multisort($attempts, SORT_ASC, $timeMinuts, SORT_ASC,$timeSeconds, SORT_ASC, $ArrayOfArrayRecords);
 		echo "<table><tr><th>Top</th><th>Name</th><th>Attempts</th><th>Time</th></tr>";
 		foreach ($ArrayOfArrayRecords as $clave => $fila){
-			if ($_SESSION["user"]==$fila['name'] && (int)$_SESSION["attempts"]==(int)$fila['attempts'] && (int)$_SESSION["timeGame"]==(int)$fila['time']){
-				echo "<tr class='userGame'>";
-			}else{
+			if (isset($_SESSION["user"]) && isset($_SESSION["attempts"]) && isset($_SESSION["timeGame"])) {
+				if ($_SESSION["user"]==$fila['name'] && (int)$_SESSION["attempts"]==(int)$fila['attempts'] && (int)$_SESSION["timeGame"]==(int)$fila['time']) {
+					echo "<tr class='userGame'>";
+				} else {
+					echo "<tr>";
+				}
+			} else {
 				echo "<tr>";
 			}
 			echo "<td>".($clave+1)."</td>";
@@ -152,7 +160,7 @@
 			}
 			echo "<td>".$fila['timeMinuts'].":".$nuevosSegundos."</td></tr>";
 			if ($clave==10) {
-				break;	
+				break;
 			}
 		}
 		echo "</table>";
@@ -166,15 +174,15 @@
 	<?php
 		$file = file("txt/recordsHard.txt");
 		$ArrayOfArrayRecords=[];
-		for ($i=0; $i < sizeof($file) ; $i++) { 
+		for ($i=0; $i < sizeof($file) ; $i++) {
 			$SingleOne=explode(";", $file[$i]);
 			$minutos=intval(intval($SingleOne[2])/60);
 			$minutosSinSegundos=$minutos*60;
 			$segundos=intval($SingleOne[2])-$minutosSinSegundos;
-			
+
 			$SingleOne= array('name' => $SingleOne[0],"attempts"=>$SingleOne[1], 'timeMinuts'=>$minutos,'timeSeconds'=>$segundos);
-			$ArrayOfArrayRecords[]=$SingleOne;				
-		}	
+			$ArrayOfArrayRecords[]=$SingleOne;
+		}
 		foreach ($ArrayOfArrayRecords as $clave => $fila) {
 			$attempts[$clave] = $fila['attempts'];
 			$timeMinuts[$clave] = $fila['timeMinuts'];
@@ -183,9 +191,13 @@
 		array_multisort($attempts, SORT_ASC, $timeMinuts, SORT_ASC,$timeSeconds, SORT_ASC, $ArrayOfArrayRecords);
 		echo "<table><tr><th>Top</th><th>Name</th><th>Attempts</th><th>Time</th></tr>";
 		foreach ($ArrayOfArrayRecords as $clave => $fila){
-			if ($_SESSION["user"]==$fila['name'] && (int)$_SESSION["attempts"]==(int)$fila['attempts'] && (int)$_SESSION["timeGame"]==(int)$fila['time']){
-				echo "<tr class='userGame'>";
-			}else{
+			if (isset($_SESSION["user"]) && isset($_SESSION["attempts"]) && isset($_SESSION["timeGame"])) {
+				if ($_SESSION["user"]==$fila['name'] && (int)$_SESSION["attempts"]==(int)$fila['attempts'] && (int)$_SESSION["timeGame"]==(int)$fila['time']) {
+					echo "<tr class='userGame'>";
+				} else {
+					echo "<tr>";
+				}
+			} else {
 				echo "<tr>";
 			}
 			echo "<td>".($clave+1)."</td>";
@@ -198,7 +210,7 @@
 			}
 			echo "<td>".$fila['timeMinuts'].":".$nuevosSegundos."</td></tr>";
 			if ($clave==10) {
-				break;	
+				break;
 			}
 		}
 		echo "</table>";
