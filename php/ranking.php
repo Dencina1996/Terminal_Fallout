@@ -55,14 +55,14 @@
 			$timeSeconds[$clave] = $fila['timeSeconds'];
 		}
 		array_multisort($attempts, SORT_ASC, $timeMinuts, SORT_ASC,$timeSeconds, SORT_ASC, $ArrayOfArrayRecords);
-		echo "<table><tr><th>Name</th><th>Attempts</th><th>Time</th></tr>";
+		echo "<table><tr><th>Top</th><th>Name</th><th>Attempts</th><th>Time</th></tr>";
 		foreach ($ArrayOfArrayRecords as $clave => $fila){
 			if ($_SESSION["user"]==$fila['name'] && (int)$_SESSION["attempts"]==(int)$fila['attempts'] && (int)$_SESSION["timeGame"]==(int)$fila['time']){
 				echo "<tr class='userGame'>";
 			}else{
 				echo "<tr>";
 			}
-			
+			echo "<td>".($clave+1)."</td>";
 			echo "<td>".$fila['name']."</td>";
 			echo "<td>".$fila['attempts']."</td>";
 			if ($fila['timeSeconds']<10){
@@ -71,6 +71,9 @@
 				$nuevosSegundos=$fila['timeSeconds'];
 			}
 			echo "<td>".$fila['timeMinuts'].":".$nuevosSegundos."</td></tr>";
+			if ($clave==10) {
+				break;	
+			}
 		}
 		echo "</table>";
 	?>
