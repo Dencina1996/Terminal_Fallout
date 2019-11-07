@@ -44,7 +44,11 @@ var daltStyleSheet = document.styleSheets[1];
           disableSpans();
           disableHelps();
           setTimeout(function() {
-            var username = prompt("You won! Enter your name:");
+            if (document.getElementById("session_username") == null) {
+              var username = prompt("You won! Enter your name:");
+            } else {
+              var username = prompt("You won! Enter your name:", document.getElementById("session_username").innerHTML);  
+            }
             performClick(username, att.toString(), document.getElementById("save"), "click");
           },3000);
     		} else {

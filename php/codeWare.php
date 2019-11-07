@@ -219,6 +219,11 @@
 	$col2 = array_slice($memory_dump, $column_length, $column_length);
 	echo "<p hidden id='password'>".$words[rand(0, sizeof($words)-1)]."</p>";
 	echo "<p hidden id='extremeMode'>".$_SESSION['extreme']."</p>";
+	if (isset($_SESSION['session_username'])) {
+		echo "<p hidden id='session_username'>".$_SESSION['session_username']."</p>";
+	} else {
+		echo "<p hidden id='session_username'></p>";
+	}
 	//echo "<script type='text/javascript' src='../js/scripts.js'>setWordLength();</script>";
 
 	function getSymbols($symbol) {

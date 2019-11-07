@@ -3,6 +3,7 @@
   receiveAndWrite();
   function receiveAndWrite() {
     if ($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST["username"]) and $_POST["username"]!="") {
+    $_SESSION['session_username'] = $_POST["username"];
     if ($_SESSION['difficulty']==1) {
         $file = "../txt/recordsEasy.txt";        
     }else if ($_SESSION['difficulty']==2) {

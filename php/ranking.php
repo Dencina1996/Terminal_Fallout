@@ -74,5 +74,11 @@
 		}
 		echo "</table>";
 	?>
+	<table style="position: absolute; top: 15vh">
+		<tr>
+			<td><button class="myButton" style="display: contents;" onclick="window.location.href = '/index.php'">GO BACK TO MENU</button></td>
+			<td><button class="myButton" style="display: contents;" onclick="window.location.href = '/php/index.php'">PLAY AGAIN</button></td>
+		</tr>
+	</table>
 	</body>
 </html>
