@@ -9,17 +9,7 @@
 		<script type="text/javascript" src="js/scripts.js"></script>
 	</head>
 	<body>
-		<?php
-		if (isset($_SESSION['colors'])) {
-			echo "<link rel='stylesheet' type='text/css' href='css/".$_SESSION['colors']."'>";
-		}
-        if(isset($_GET["stylescss"])){
-           $Filecss=$_GET["stylescss"];
-           echo '<script type="text/javascript">document.getElementById("colors").remove();</script>';
-           echo "<link id='colors' rel='stylesheet' type='text/css' href='css/".$Filecss."'>";    
-             $_SESSION['colors'] = $_GET['stylescss'];	
-    }
-    ?>
+		
 		<img id="audioImg" src="img/speaker.png" onclick="audioControl('menu')" class="enabled">
 		<img id="daltonicImg" src="img/daltonic_false.png" onclick="daltControl('menu')" class="enabled">
 		<audio autoplay loop>
