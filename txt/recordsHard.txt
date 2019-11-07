@@ -5,4 +5,5 @@ Obi1KN00bi;2;18
 Han;4;56
 ChewBack;2;86
 R2D2;1;6
-YoDaBest;1;6
+YoDaBest;1;6AlkalynAAA;3;18
+AlkalynAAA;3;12

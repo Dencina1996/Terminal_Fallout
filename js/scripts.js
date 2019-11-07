@@ -367,11 +367,11 @@ function daltControl(type) {
     }
   var daltImg = document.getElementById('daltonicImg');
   if (daltImg.className == 'enabled') {
-      daltImg.src = ruta+"img/daltonic_true.png";
+      daltImg.src = ruta+"/img/daltonic_true.png";
       daltImg.className = 'disabled';
       daltStyleSheet.disabled = false;
     } else if (daltImg.className == 'disabled') {
-      daltImg.src = ruta+"img/daltonic_false.png";
+      daltImg.src = ruta+"/img/daltonic_false.png";
       daltImg.className = 'enabled';
       daltStyleSheet.disabled = true;
     }
