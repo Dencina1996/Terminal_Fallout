@@ -359,14 +359,19 @@ function activateEgg(){
  }
 }
 
-function daltControl() {
+function daltControl(type) {
+  if(type=='terminal'){
+      ruta='../';
+    }else if(type=='menu'){
+      ruta='';
+    }
   var daltImg = document.getElementById('daltonicImg');
   if (daltImg.className == 'enabled') {
-      daltImg.src = "/img/daltonic_true.png";
+      daltImg.src = ruta+"img/daltonic_true.png";
       daltImg.className = 'disabled';
       daltStyleSheet.disabled = false;
     } else if (daltImg.className == 'disabled') {
-      daltImg.src = "/img/daltonic_false.png";
+      daltImg.src = ruta+"img/daltonic_false.png";
       daltImg.className = 'enabled';
       daltStyleSheet.disabled = true;
     }
