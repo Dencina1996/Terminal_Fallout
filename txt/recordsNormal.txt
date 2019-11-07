@@ -6,3 +6,4 @@ CLAnnis;2;324
 MiniTyrion;1;31
 KhalDrug;3;123
 EddStar;1;53
+AlkalynAAA;3;9
