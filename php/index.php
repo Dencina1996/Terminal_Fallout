@@ -64,12 +64,26 @@
 			<div id="leftSymCol" class="thickColumn">
 				<?php
 					$index = 0;
-					for ($i = 0; $i < 17; $i++) {
-						for ($x = 0; $x < 12; $x++) {
-							echo $col1[$index];
-							$index++;
+					$columnKey = "column1-".$_SESSION["difficulty"];
+					//if (isset($_SESSION[$columnKey]) && $_SESSION[$columnKey] != "") {
+					if (isset($_SESSION["string_saved-".$_SESSION["difficulty"]]) && $_SESSION["string_saved-".$_SESSION["difficulty"]] == true) {
+						$col1 = $_SESSION[$columnKey];
+						for ($i = 0; $i < 17; $i++) {
+							for ($x = 0; $x < 12; $x++) {
+								echo $col1[$index];
+								$index++;
+							}
+							echo '<br>';
 						}
-						echo '<br>';
+					} else {
+						$_SESSION[$columnKey] = $col1;
+						for ($i = 0; $i < 17; $i++) {
+							for ($x = 0; $x < 12; $x++) {
+								echo $col1[$index];
+								$index++;
+							}
+							echo '<br>';
+						}
 					}
 				?>
 			</div>
@@ -84,12 +98,25 @@
 			<div id="rightSymCol" class="thickColumn">
 				<?php
 					$index = 0;
-					for ($i = 0; $i < 17; $i++) {
-						for ($x = 0; $x < 12; $x++) {
-							echo $col2[$index];
-							$index++;
+					$columnKey = "column2-".$_SESSION["difficulty"];
+					if (isset($_SESSION["string_saved-".$_SESSION["difficulty"]]) && $_SESSION["string_saved-".$_SESSION["difficulty"]] == true) {
+						$col2 = $_SESSION[$columnKey];
+						for ($i = 0; $i < 17; $i++) {
+							for ($x = 0; $x < 12; $x++) {
+								echo $col2[$index];
+								$index++;
+							}
+							echo '<br>';
 						}
-						echo '<br>';
+					} else {
+						$_SESSION[$columnKey] = $col2;
+						for ($i = 0; $i < 17; $i++) {
+							for ($x = 0; $x < 12; $x++) {
+								echo $col2[$index];
+								$index++;
+							}
+							echo '<br>';
+						}
 					}
 				?>
 			</div>

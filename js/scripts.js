@@ -43,7 +43,7 @@ var word_length = -1;
           disableSpans();
           disableHelps();
           setTimeout(function() {
-            var username = prompt("You won! Enter your name:");
+            var username = prompt("You won! Enter your name:", document.getElementById("session_username").innerHTML);
             performClick(username, att.toString(), document.getElementById("save"), "click");
           },3000);
     		} else {
@@ -265,7 +265,7 @@ var word_length = -1;
   function resetAttempts(help) {
     if (word_length === -1) {
       word_length = document.getElementById("password").innerHTML.length;
-    } 
+    }
     tries = 0;
     attempts = 4;
     var attempts_squares = document.getElementsByClassName("attemptDiv");
