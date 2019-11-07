@@ -1,4 +1,7 @@
-
+#buttonTable {
+  position: absolute; 
+  top: 15vh;
+}
 
 @media screen and (min-width: 1921px) {
 
@@ -1050,6 +1053,9 @@
   * { margin: 2px;
     }
 
+  #buttonTable {  top: 30vh;
+  }
+
 }
 
 /********************* END *********************/
@@ -1079,5 +1085,8 @@
 
   * { margin: 2px;
     }
+
+  #buttonTable {  top: 30vh;
+  }
 
 }

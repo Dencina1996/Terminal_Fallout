@@ -29,6 +29,14 @@
     ?>
 	</head>
 	<body>
+		<img id="audioImg" src="/img/speaker.png" onclick="audioControl('menu')" class="enabled">
+		<img id="daltonicImg" src="/img/daltonic_false.png" onclick="daltControl('menu')" class="enabled">
+		<audio autoplay loop>
+			<source src="sound/bg_music.mp3"  type="audio/ogg">
+		</audio>
+		<audio>
+			<source src="sound/sound.mp3" type="audio/mp3">
+		</audio>
 		<div id="menuImage"></div>
 		<div id="rankingEasy" class="rankDiv">
 	<?php
@@ -77,7 +85,7 @@
 		}
 		echo "</table>";
 	?>
-	<table style="position: absolute; top: 15vh">
+	<table id="buttonTable">
 		<tr>
 			<td><button class="myButton" style="display: contents;" onclick="window.location.href = '/index.php'">GO BACK TO MENU</button></td>
 			<td><button class="myButton" style="display: contents;" onclick="window.location.href = '/php/index.php'">PLAY AGAIN</button></td>
