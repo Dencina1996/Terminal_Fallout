@@ -5,7 +5,12 @@
 		<meta charset="utf-8">
 		<link rel="shortcut icon" href="/img/favicon.ico">
 		<title>Terminal Fallout 3 - Ranking</title>
-		<link rel="stylesheet" type="text/css" href="../css/menustyle.css">	
+		<link rel="stylesheet" type="text/css" href="../css/menustyle.css">
+		<link rel="stylesheet" type="text/css" href="../css/daltonic.css">	
+		<script type="text/javascript">
+			document.styleSheets[1].disabled = true;
+		</script>
+		<script type="text/javascript" src="../js/scripts.js"></script>
 		<style type="text/css">
 			@keyframes zoominout {
 			    0% {

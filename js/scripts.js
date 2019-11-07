@@ -308,14 +308,14 @@ var daltStyleSheet = document.styleSheets[1];
       ruta='';
     }
     if (soundImg.className == 'enabled') {
-      soundImg.src = ruta+'img/mute.png';
+      soundImg.src = ruta+'/img/mute.png';
       soundImg.className = 'disabled';
       bgAudio.volume = 0.0;
       buttonAudio.volume = 0.0;
       easteregg.muted = true;
     }
     else if (soundImg.className == 'disabled') {
-      soundImg.src = ruta+'img/speaker.png';
+      soundImg.src = ruta+'/img/speaker.png';
       soundImg.className = 'enabled';
       bgAudio.volume = 1.0;
       buttonAudio.volume = 1.0;
